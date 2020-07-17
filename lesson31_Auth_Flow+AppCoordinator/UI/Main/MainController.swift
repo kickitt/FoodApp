@@ -8,25 +8,22 @@
 
 import UIKit
 
-class MainController: BaseViewController {
+class MainController: UITabBarController {
 
-    var onLogout: ((MainController)->())?
+    deinit {
+        print("deinit \(self.className)")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Main"
+        self.tabBar.tintColor = UIColor(red: 53/255, green: 132/255, blue: 159/255, alpha: 1)
     }
     
-    @IBAction private func logoutButtonClicked() {
-        
-        let alert = UIAlertController(title: "Вы точно хотите выйти?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { [weak self] _ in
-            if let strongSelf = self {
-                self?.onLogout?(strongSelf)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.selectedViewController?.preferredStatusBarStyle ?? .lightContent
     }
 }

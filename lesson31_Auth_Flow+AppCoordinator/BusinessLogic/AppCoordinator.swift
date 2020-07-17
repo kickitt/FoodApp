@@ -42,26 +42,27 @@ class AppCoordinator: Coordinator {
     }
     
     private func startMainFlow() {
-        if let controller = R.storyboard.main.mainController() {
-            controller.onLogout = { [weak self] _ in
-                self?.settings.logoutUser()
-                self?.startFlow()
-            }
-            let navController = NavigationController.init(rootViewController: controller)
-            window.rootViewController = navController
+        let coordinator = MainCoordinator(window: window)
+        coordinator.onSuccessFlow = { [weak self] coordinator in
+            self?.removeChildrenCoordinator(coordinator: coordinator)
+            self?.settings.logoutUser()
+            self?.startFlow()
         }
+        
+        self.addChildrenCoordinator(coordinator: coordinator)
+        coordinator.startFlow()
     }
     
     private func startAuthFlow() {
-        let authFlowCoordinator = AuthFlowCoordinator(window: window, rootViewController: NavigationController())
+        let coordinator = AuthFlowCoordinator(window: window, rootViewController: NavigationController())
         
-        authFlowCoordinator.onSuccessFlow = { [weak self] coordinator, user in
+        coordinator.onSuccessFlow = { [weak self] coordinator, user in
             self?.removeChildrenCoordinator(coordinator: coordinator)
             self?.settings.loginUser(user)
             self?.startMainFlow()
         }
         
-        self.addChildrenCoordinator(coordinator: authFlowCoordinator)
-        authFlowCoordinator.startFlow()
+        self.addChildrenCoordinator(coordinator: coordinator)
+        coordinator.startFlow()
     }
 }

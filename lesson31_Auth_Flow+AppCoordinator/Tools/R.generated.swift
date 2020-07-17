@@ -89,16 +89,20 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
     /// Storyboard `Auth`.
     static let auth = _R.storyboard.auth()
+    /// Storyboard `Kupons`.
+    static let kupons = _R.storyboard.kupons()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
-    /// Storyboard `Start`.
-    static let start = _R.storyboard.start()
+    /// Storyboard `Lessons`.
+    static let lessons = _R.storyboard.lessons()
+    /// Storyboard `MyLessons`.
+    static let myLessons = _R.storyboard.myLessons()
+    /// Storyboard `Settings`.
+    static let settings = _R.storyboard.settings()
     /// Storyboard `Tutorial`.
     static let tutorial = _R.storyboard.tutorial()
 
@@ -110,6 +114,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Kupons", bundle: ...)`
+    static func kupons(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.kupons)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
@@ -117,16 +128,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
+    /// `UIStoryboard(name: "Lessons", bundle: ...)`
+    static func lessons(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.lessons)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Start", bundle: ...)`
-    static func start(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.start)
+    /// `UIStoryboard(name: "MyLessons", bundle: ...)`
+    static func myLessons(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.myLessons)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Settings", bundle: ...)`
+    static func settings(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.settings)
     }
     #endif
 
@@ -141,10 +159,64 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
+    /// Image `allLessonsIcon`.
+    static let allLessonsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "allLessonsIcon")
+    /// Image `kuponIcon`.
+    static let kuponIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "kuponIcon")
+    /// Image `logoutIcon`.
+    static let logoutIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "logoutIcon")
+    /// Image `myLessons`.
+    static let myLessons = Rswift.ImageResource(bundle: R.hostingBundle, name: "myLessons")
+    /// Image `restoreIcon`.
+    static let restoreIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "restoreIcon")
+    /// Image `settingsIcon`.
+    static let settingsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settingsIcon")
     /// Image `splash`.
     static let splash = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "allLessonsIcon", bundle: ..., traitCollection: ...)`
+    static func allLessonsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.allLessonsIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "kuponIcon", bundle: ..., traitCollection: ...)`
+    static func kuponIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.kuponIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "logoutIcon", bundle: ..., traitCollection: ...)`
+    static func logoutIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logoutIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "myLessons", bundle: ..., traitCollection: ...)`
+    static func myLessons(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.myLessons, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "restoreIcon", bundle: ..., traitCollection: ...)`
+    static func restoreIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.restoreIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "settingsIcon", bundle: ..., traitCollection: ...)`
+    static func settingsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.settingsIcon, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "splash", bundle: ..., traitCollection: ...)`
@@ -183,13 +255,19 @@ struct _R: Rswift.Validatable {
       try auth.validate()
       #endif
       #if os(iOS) || os(tvOS)
+      try kupons.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try main.validate()
+      try lessons.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try start.validate()
+      try myLessons.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try tutorial.validate()
@@ -231,6 +309,20 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    struct kupons: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Kupons"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
 
@@ -248,21 +340,21 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct lessons: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = NavigationController
 
       let bundle = R.hostingBundle
-      let mainController = StoryboardViewControllerResource<MainController>(identifier: "MainController")
-      let name = "Main"
+      let lessonsController = StoryboardViewControllerResource<LessonsController>(identifier: "LessonsController")
+      let name = "Lessons"
 
-      func mainController(_: Void = ()) -> MainController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mainController)
+      func lessonsController(_: Void = ()) -> LessonsController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: lessonsController)
       }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.main().mainController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainController' could not be loaded from storyboard 'Main' as 'MainController'.") }
+        if _R.storyboard.lessons().lessonsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'lessonsController' could not be loaded from storyboard 'Lessons' as 'LessonsController'.") }
       }
 
       fileprivate init() {}
@@ -270,16 +362,36 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct start: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = StartController
-
+    struct myLessons: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
-      let name = "Start"
+      let name = "MyLessons"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "splash", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'splash' is used in storyboard 'Start', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct settings: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = NavigationController
+
+      let bundle = R.hostingBundle
+      let name = "Settings"
+      let settingsController = StoryboardViewControllerResource<SettingsController>(identifier: "SettingsController")
+
+      func settingsController(_: Void = ()) -> SettingsController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsController)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "logoutIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logoutIcon' is used in storyboard 'Settings', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.settings().settingsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsController' could not be loaded from storyboard 'Settings' as 'SettingsController'.") }
       }
 
       fileprivate init() {}

@@ -29,8 +29,8 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    override func setup() {
-        super.setup()
+    override func setupView() {
+        super.setupView()
         
         title = "Login"
         
