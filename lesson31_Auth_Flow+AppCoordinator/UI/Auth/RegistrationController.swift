@@ -19,12 +19,8 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     @IBOutlet private var BottomConstraint: NSLayoutConstraint!
     
     
-    var onRegSuccess: ((User, RegistrationController)->())?
-    var onRegFailure: ((RegistrationController)->())?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var onRegSuccess: ((User)->())?
+    var onRegFailure: (()->())?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -82,13 +78,13 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
             forName: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil, queue: .main) { (notification) in
-                self.handleKeyboard(notification: notification)
+            object: nil, queue: .main) { [weak self] (notification) in
+                self?.handleKeyboard(notification: notification)
         }
         notificationCenter.addObserver(
             forName: UIResponder.keyboardWillHideNotification,
-            object: nil, queue: .main) { (notification) in
-                self.handleKeyboard(notification: notification)
+            object: nil, queue: .main) { [weak self] (notification) in
+                self?.handleKeyboard(notification: notification)
         }
         
     }
@@ -108,9 +104,9 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
             FieldsValidator.isPassValid(passF.text!),
             FieldsValidator.isPassConfirmed(passF.text!, confirmPassF.text!){
             let user = User(name: nameF.text!, email: emailF.text!, phone: phoneF.text!, password: confirmPassF.text!, photo: nil)
-            onRegSuccess?(user, self)
+            onRegSuccess?(user)
         } else {
-            onRegFailure?(self)
+            onRegFailure?()
         }
     }
     

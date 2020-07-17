@@ -89,22 +89,25 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
+    /// Storyboard `Auth`.
+    static let auth = _R.storyboard.auth()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Login`.
-    static let login = _R.storyboard.login()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
-    /// Storyboard `Registration`.
-    static let registration = _R.storyboard.registration()
-    /// Storyboard `RestorePassword`.
-    static let restorePassword = _R.storyboard.restorePassword()
     /// Storyboard `Start`.
     static let start = _R.storyboard.start()
     /// Storyboard `Tutorial`.
     static let tutorial = _R.storyboard.tutorial()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Auth", bundle: ...)`
+    static func auth(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.auth)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -114,30 +117,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Login", bundle: ...)`
-    static func login(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.login)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Registration", bundle: ...)`
-    static func registration(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.registration)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "RestorePassword", bundle: ...)`
-    static func restorePassword(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.restorePassword)
     }
     #endif
 
@@ -198,19 +180,13 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try auth.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try login.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
       try main.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try registration.validate()
-      #endif
-      #if os(iOS) || os(tvOS)
-      try restorePassword.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try start.validate()
@@ -219,6 +195,40 @@ struct _R: Rswift.Validatable {
       try tutorial.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct auth: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = NavigationController
+
+      let bundle = R.hostingBundle
+      let loginController = StoryboardViewControllerResource<LoginController>(identifier: "LoginController")
+      let name = "Auth"
+      let registrationController = StoryboardViewControllerResource<RegistrationController>(identifier: "RegistrationController")
+      let restorePasswordController = StoryboardViewControllerResource<RestorePasswordController>(identifier: "RestorePasswordController")
+
+      func loginController(_: Void = ()) -> LoginController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginController)
+      }
+
+      func registrationController(_: Void = ()) -> RegistrationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: registrationController)
+      }
+
+      func restorePasswordController(_: Void = ()) -> RestorePasswordController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restorePasswordController)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.auth().loginController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginController' could not be loaded from storyboard 'Auth' as 'LoginController'.") }
+        if _R.storyboard.auth().registrationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'registrationController' could not be loaded from storyboard 'Auth' as 'RegistrationController'.") }
+        if _R.storyboard.auth().restorePasswordController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restorePasswordController' could not be loaded from storyboard 'Auth' as 'RestorePasswordController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -231,28 +241,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "splash", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'splash' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct login: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = NavigationController
-
-      let bundle = R.hostingBundle
-      let loginController = StoryboardViewControllerResource<LoginController>(identifier: "LoginController")
-      let name = "Login"
-
-      func loginController(_: Void = ()) -> LoginController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.login().loginController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginController' could not be loaded from storyboard 'Login' as 'LoginController'.") }
       }
 
       fileprivate init() {}
@@ -275,44 +263,6 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().mainController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainController' could not be loaded from storyboard 'Main' as 'MainController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct registration: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = NavigationController
-
-      let bundle = R.hostingBundle
-      let name = "Registration"
-      let registrationController = StoryboardViewControllerResource<RegistrationController>(identifier: "RegistrationController")
-
-      func registrationController(_: Void = ()) -> RegistrationController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: registrationController)
-      }
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
-        if _R.storyboard.registration().registrationController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'registrationController' could not be loaded from storyboard 'Registration' as 'RegistrationController'.") }
-      }
-
-      fileprivate init() {}
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    struct restorePassword: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = NavigationController
-
-      let bundle = R.hostingBundle
-      let name = "RestorePassword"
-
-      static func validate() throws {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-        }
       }
 
       fileprivate init() {}

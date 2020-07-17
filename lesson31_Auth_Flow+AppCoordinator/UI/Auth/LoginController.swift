@@ -15,10 +15,10 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     @IBOutlet private var confirmButton: UIButton?
     @IBOutlet private var regButton: UIButton?
     
-     var onLoginSuccess: ((User, LoginController)->())?
-    //var onLoginSuccess: ((LoginController)->())?
+    var onLoginSuccess: ((User, LoginController)->())?
     var onLoginFailure: ((LoginController)->())?
     var onSignIn: (()->())?
+    var onRestore: (()->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,21 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         passField?.isSecureTextEntry = true
         
         confirmButton?.isEnabled = false
-        confirmButton?.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 0.3)
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction private func editingChanged(_ textField: UITextField) {
+        
+        guard let emailF = emailField, let passF = passField else {
+            return
+        }
+        
+        if emailF.text!.count > 0 && passF.text!.count > 0{
+            confirmButton?.isEnabled = true
+        } else  {
+            confirmButton?.isEnabled = false
+        }
     }
     
     @IBAction private func loginButtonClicked() {
@@ -70,30 +84,14 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         } else {
             onLoginFailure?(self)
         }
-        
-
-        
-    }
-    
-    //MARK: - Actions
-    
-    @IBAction private func editingChanged(_ textField: UITextField) {
-        
-        guard let emailF = emailField, let passF = passField else {
-            return
-        }
-        
-        if emailF.text!.count > 0 && passF.text!.count > 0{
-            confirmButton?.isEnabled = true
-            confirmButton?.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 1)
-        } else  {
-            confirmButton?.isEnabled = false
-            confirmButton?.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 0.3)
-        }
     }
     
     @IBAction private func signInButtonClicked() {
         onSignIn?()
+    }
+    
+    @IBAction private func restoreButtonClicked() {
+        onRestore?()
     }
     
     //MARK: - UITextFieldDelegate
