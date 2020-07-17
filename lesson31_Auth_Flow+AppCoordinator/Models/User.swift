@@ -9,8 +9,9 @@
 import Foundation
 
 struct User: Codable {
-    let name: String
+    let name: String?
     let email: String
+    let phone: String?
     let password: String
     let photo: String?
 }

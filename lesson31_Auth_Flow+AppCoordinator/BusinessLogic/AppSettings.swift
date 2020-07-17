@@ -10,9 +10,12 @@ import Foundation
 
 class AppSettings {
     
+    private var user: User?
+    
     private enum Key {
         static let IsShowedTutorialKey = "IsShowedTutorialKey"
         static let UserLoggedKey = "UserLoggedKey"
+        static let UserReggedKey = "UserReggedKey"
     }
     
     init() {
@@ -21,8 +24,6 @@ class AppSettings {
             self.user = user
         }
     }
-    
-    private var user: User?
     
     var isShowedTutorial: Bool {
         get {
@@ -37,8 +38,15 @@ class AppSettings {
         return user != nil
     }
     
-    //
+    //TODO: login user with mock
     func loginUser(_ user: User) {
+        self.user = user
+        if let data = try? JSONEncoder().encode(user) {
+            UserDefaults.standard.set(data, forKey: Key.UserLoggedKey)
+        }
+    }
+    
+    func registerUser(_ user: User) {
         self.user = user
         if let data = try? JSONEncoder().encode(user) {
             UserDefaults.standard.set(data, forKey: Key.UserLoggedKey)

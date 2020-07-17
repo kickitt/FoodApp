@@ -9,10 +9,10 @@
 import UIKit
 import Rswift
 
-class AppCoordinator {
+class AppCoordinator: CoordinatorProtocol {
     
-    private let window: UIWindow?
-    private let settings: AppSettings
+    let window: UIWindow?
+    let settings: AppSettings
     
     init(window: UIWindow?, settings: AppSettings) {
         self.window = window
@@ -54,13 +54,10 @@ class AppCoordinator {
     }
     
     private func startAuthFlow() {
-        if let controller = R.storyboard.auth.loginController() {
-            controller.onLoginSuccess = { [weak self] user,_ in
-                self?.settings.loginUser(user)
-                self?.start()
-            }
-            let navController = NavigationController.init(rootViewController: controller)
-            window?.rootViewController = navController
+        let authFlowCoordinator = AuthFlowCoordinator(window: window, settings: settings)
+        authFlowCoordinator.start()
+        authFlowCoordinator.onAuthSuccess = {
+            self.start()
         }
     }
 }

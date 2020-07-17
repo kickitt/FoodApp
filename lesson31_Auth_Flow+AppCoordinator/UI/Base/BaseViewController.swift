@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -23,7 +24,11 @@ class BaseViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
+    }
+    
+    func setup() {
+        self.view.backgroundColor = UIColor(red: 53/255, green: 132/255, blue: 159/255, alpha: 1)
     }
 
 }

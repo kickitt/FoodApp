@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30085B2524C090860023889F /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30085B2424C090860023889F /* Registration.storyboard */; };
+		30085B2724C0909A0023889F /* RestorePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30085B2624C0909A0023889F /* RestorePassword.storyboard */; };
+		30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */; };
+		30085B2B24C17F710023889F /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30085B2A24C17F710023889F /* CoordinatorProtocol.swift */; };
+		301358CB24BEF5D300416177 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CA24BEF5D300416177 /* AuthButton.swift */; };
+		301358CD24BF261700416177 /* FieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CC24BF261700416177 /* FieldsValidator.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
 		E7A50E7D24B8D790007274E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50E7C24B8D790007274E2 /* AppDelegate.swift */; };
 		E7A50E8624B8D793007274E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A50E8524B8D793007274E2 /* Assets.xcassets */; };
@@ -19,7 +25,7 @@
 		E7A50EAE24B8D7D7007274E2 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50E9A24B8D7D6007274E2 /* RegistrationController.swift */; };
 		E7A50EAF24B8D7D7007274E2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50E9B24B8D7D6007274E2 /* LoginController.swift */; };
 		E7A50EB024B8D7D7007274E2 /* RestorePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50E9C24B8D7D6007274E2 /* RestorePasswordController.swift */; };
-		E7A50EB124B8D7D7007274E2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A50E9D24B8D7D6007274E2 /* Auth.storyboard */; };
+		E7A50EB124B8D7D7007274E2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A50E9D24B8D7D6007274E2 /* Login.storyboard */; };
 		E7A50EB224B8D7D7007274E2 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A50E9F24B8D7D6007274E2 /* Start.storyboard */; };
 		E7A50EB324B8D7D7007274E2 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50EA024B8D7D6007274E2 /* StartController.swift */; };
 		E7A50EB424B8D7D7007274E2 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50EA224B8D7D6007274E2 /* MainController.swift */; };
@@ -33,6 +39,12 @@
 
 /* Begin PBXFileReference section */
 		1D61E26FA2C80D98B6F840CD /* Pods-lesson31_Auth_Flow+AppCoordinator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.release.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.release.xcconfig"; sourceTree = "<group>"; };
+		30085B2424C090860023889F /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		30085B2624C0909A0023889F /* RestorePassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestorePassword.storyboard; sourceTree = "<group>"; };
+		30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
+		30085B2A24C17F710023889F /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		301358CA24BEF5D300416177 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		301358CC24BF261700416177 /* FieldsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsValidator.swift; sourceTree = "<group>"; };
 		54B81FF14751E81C8551CD44 /* Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
 		E7A50E7924B8D790007274E2 /* lesson31_Auth_Flow+AppCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lesson31_Auth_Flow+AppCoordinator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A50E7C24B8D790007274E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +59,7 @@
 		E7A50E9A24B8D7D6007274E2 /* RegistrationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E7A50E9B24B8D7D6007274E2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E7A50E9C24B8D7D6007274E2 /* RestorePasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePasswordController.swift; sourceTree = "<group>"; };
-		E7A50E9D24B8D7D6007274E2 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		E7A50E9D24B8D7D6007274E2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E7A50E9F24B8D7D6007274E2 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		E7A50EA024B8D7D6007274E2 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		E7A50EA224B8D7D6007274E2 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -163,10 +175,14 @@
 		E7A50E9924B8D7D6007274E2 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				301358CA24BEF5D300416177 /* AuthButton.swift */,
 				E7A50E9B24B8D7D6007274E2 /* LoginController.swift */,
+				E7A50E9D24B8D7D6007274E2 /* Login.storyboard */,
 				E7A50E9A24B8D7D6007274E2 /* RegistrationController.swift */,
+				30085B2424C090860023889F /* Registration.storyboard */,
 				E7A50E9C24B8D7D6007274E2 /* RestorePasswordController.swift */,
-				E7A50E9D24B8D7D6007274E2 /* Auth.storyboard */,
+				30085B2624C0909A0023889F /* RestorePassword.storyboard */,
+				30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -204,6 +220,7 @@
 				E7A50E7C24B8D790007274E2 /* AppDelegate.swift */,
 				E7A50EA824B8D7D7007274E2 /* AppSettings.swift */,
 				E7B0A53924B8DD0F00221B50 /* AppCoordinator.swift */,
+				30085B2A24C17F710023889F /* CoordinatorProtocol.swift */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -212,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B0A54124B8E2E600221B50 /* R.generated.swift */,
+				301358CC24BF261700416177 /* FieldsValidator.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -277,8 +295,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A50EB124B8D7D7007274E2 /* Auth.storyboard in Resources */,
+				30085B2724C0909A0023889F /* RestorePassword.storyboard in Resources */,
+				E7A50EB124B8D7D7007274E2 /* Login.storyboard in Resources */,
 				E7A50E8924B8D793007274E2 /* LaunchScreen.storyboard in Resources */,
+				30085B2524C090860023889F /* Registration.storyboard in Resources */,
 				E7A50EB224B8D7D7007274E2 /* Start.storyboard in Resources */,
 				E7A50EB524B8D7D7007274E2 /* Main.storyboard in Resources */,
 				E7A50EAD24B8D7D7007274E2 /* Tutorial.storyboard in Resources */,
@@ -356,13 +376,17 @@
 			files = (
 				E7A50EB824B8D7D7007274E2 /* AppSettings.swift in Sources */,
 				E7A50EAB24B8D7D7007274E2 /* User.swift in Sources */,
+				301358CD24BF261700416177 /* FieldsValidator.swift in Sources */,
 				E7B0A54224B8E2E600221B50 /* R.generated.swift in Sources */,
 				E7A50EB724B8D7D7007274E2 /* NavigationController.swift in Sources */,
 				E7A50E7D24B8D790007274E2 /* AppDelegate.swift in Sources */,
 				E7A50EB624B8D7D7007274E2 /* BaseViewController.swift in Sources */,
 				E7A50EB324B8D7D7007274E2 /* StartController.swift in Sources */,
+				30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */,
 				E7B0A53A24B8DD0F00221B50 /* AppCoordinator.swift in Sources */,
 				E7A50EA924B8D7D7007274E2 /* NSObject.swift in Sources */,
+				30085B2B24C17F710023889F /* CoordinatorProtocol.swift in Sources */,
+				301358CB24BEF5D300416177 /* AuthButton.swift in Sources */,
 				E7A50EB424B8D7D7007274E2 /* MainController.swift in Sources */,
 				E7A50EAC24B8D7D7007274E2 /* TutorialController.swift in Sources */,
 				E7A50EAE24B8D7D7007274E2 /* RegistrationController.swift in Sources */,
