@@ -17,15 +17,19 @@ class MainCoordinator: Coordinator {
     override func startFlow() {
         
         // создадим кучу координаторов для каждого табика
-        //1
+        //MARK: - coordinator 1
         let lessonsCoordinator = LessonsCoordinator(window: self.window)
         addChildrenCoordinator(coordinator: lessonsCoordinator)
         
-        //2
+        //MARK: - coordinator 2
+        let myLessonsCoordinator = MyLessonsCoordinator(window: self.window)
+        addChildrenCoordinator(coordinator: myLessonsCoordinator)
         
-        //3
+        //MARK: - coordinator 3
+        let kuponsCoordinator = KuponsCoordinator(window: self.window)
+        addChildrenCoordinator(coordinator: kuponsCoordinator)
         
-        //4
+        //MARK: - coordinator 4 + alert
         let settingsCoordinator = SettingsCoordinator(window: self.window)
         settingsCoordinator.onLogout = { [weak self] in
             let alert = UIAlertController(title: "Вы точно хотите выйти?", message: nil, preferredStyle: .alert)
@@ -37,12 +41,16 @@ class MainCoordinator: Coordinator {
         }
         addChildrenCoordinator(coordinator: settingsCoordinator)
         
-        //
+        //MARK: -
         lessonsCoordinator.startFlow()
+        myLessonsCoordinator.startFlow()
+        kuponsCoordinator.startFlow()
         settingsCoordinator.startFlow()
         
-        //
+        //MARK: -
         mainTabbar.viewControllers = [lessonsCoordinator.rootController,
+                                      myLessonsCoordinator.rootController,
+                                      kuponsCoordinator.rootController,
                                       settingsCoordinator.rootController]
         window.rootViewController = mainTabbar
     }

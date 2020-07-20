@@ -159,7 +159,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `allLessonsIcon`.
     static let allLessonsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "allLessonsIcon")
@@ -175,6 +175,8 @@ struct R: Rswift.Validatable {
     static let settingsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settingsIcon")
     /// Image `splash`.
     static let splash = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash")
+    /// Image `ups`.
+    static let ups = Rswift.ImageResource(bundle: R.hostingBundle, name: "ups")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "allLessonsIcon", bundle: ..., traitCollection: ...)`
@@ -222,6 +224,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "splash", bundle: ..., traitCollection: ...)`
     static func splash(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.splash, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ups", bundle: ..., traitCollection: ...)`
+    static func ups(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.ups, compatibleWith: traitCollection)
     }
     #endif
 
@@ -309,13 +318,21 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct kupons: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct kupons: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = NavigationController
+
       let bundle = R.hostingBundle
+      let kuponsController = StoryboardViewControllerResource<KuponsController>(identifier: "KuponsController")
       let name = "Kupons"
+
+      func kuponsController(_: Void = ()) -> KuponsController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: kuponsController)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.kupons().kuponsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'kuponsController' could not be loaded from storyboard 'Kupons' as 'KuponsController'.") }
       }
 
       fileprivate init() {}
@@ -362,13 +379,22 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct myLessons: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct myLessons: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = NavigationController
+
       let bundle = R.hostingBundle
+      let myLessonsController = StoryboardViewControllerResource<MyLessonsController>(identifier: "MyLessonsController")
       let name = "MyLessons"
 
+      func myLessonsController(_: Void = ()) -> MyLessonsController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: myLessonsController)
+      }
+
       static func validate() throws {
+        if UIKit.UIImage(named: "ups", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ups' is used in storyboard 'MyLessons', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.myLessons().myLessonsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'myLessonsController' could not be loaded from storyboard 'MyLessons' as 'MyLessonsController'.") }
       }
 
       fileprivate init() {}

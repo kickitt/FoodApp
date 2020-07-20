@@ -9,5 +9,13 @@
 import UIKit
 
 class MyLessonsCoordinator: Coordinator {
+    
+    let rootController = NavigationController()
+    
+    override func startFlow() {
+        if let controller = R.storyboard.myLessons.myLessonsController() {
+            rootController.viewControllers = [controller]
+        }
+    }
 
 }

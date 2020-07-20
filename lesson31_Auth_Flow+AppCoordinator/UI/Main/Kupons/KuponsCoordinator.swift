@@ -10,4 +10,11 @@ import UIKit
 
 class KuponsCoordinator: Coordinator {
     
+    let rootController = NavigationController()
+    
+    override func startFlow() {
+        if let controller = R.storyboard.kupons.kuponsController() {
+            rootController.viewControllers = [controller]
+        }
+    }
 }

@@ -9,22 +9,9 @@
 import UIKit
 
 class KuponsController: BaseViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func setupController() {
+        self.title = "Kupons"
+        self.tabBarItem = UITabBarItem(title: "Kupons", image: R.image.kuponIcon(), tag: 0)
     }
-    */
-
 }
