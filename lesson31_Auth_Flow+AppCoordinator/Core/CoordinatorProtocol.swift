@@ -6,6 +6,9 @@
 //  Copyright © 2020 Bosov. All rights reserved.
 //
 
-protocol CoordinatorProtocol {
-  func start()
+import UIKit
+
+protocol CoordinatorProtocol {  
+    var window: UIWindow { get set }
+    func startFlow()
 }

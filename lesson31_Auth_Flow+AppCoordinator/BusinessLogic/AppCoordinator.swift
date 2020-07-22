@@ -9,17 +9,16 @@
 import UIKit
 import Rswift
 
-class AppCoordinator: CoordinatorProtocol {
+class AppCoordinator: Coordinator {
     
-    let window: UIWindow?
-    let settings: AppSettings
+    private let settings: AppSettings
     
-    init(window: UIWindow?, settings: AppSettings) {
-        self.window = window
+    init(window: UIWindow, settings: AppSettings) {
         self.settings = settings
+        super.init(window: window)
     }
     
-    func start() {
+    override func startFlow() {
         if settings.isShowedTutorial {
             if settings.isUserLogged {
                 startMainFlow()
@@ -35,29 +34,35 @@ class AppCoordinator: CoordinatorProtocol {
         if let controller = R.storyboard.tutorial.tutorialController() {
             controller.onAppStarted = { [weak self] _ in
                 self?.settings.isShowedTutorial = true
-                self?.start()
+                self?.startFlow()
             }
             let navController = NavigationController.init(rootViewController: controller)
-            window?.rootViewController = navController
+            window.rootViewController = navController
         }
     }
     
     private func startMainFlow() {
-        if let controller = R.storyboard.main.mainController() {
-            controller.onLogout = { [weak self] _ in
-                self?.settings.logoutUser()
-                self?.start()
-            }
-            let navController = NavigationController.init(rootViewController: controller)
-            window?.rootViewController = navController
+        let coordinator = MainCoordinator(window: window)
+        coordinator.onSuccessFlow = { [weak self] coordinator in
+            self?.removeChildrenCoordinator(coordinator: coordinator)
+            self?.settings.logoutUser()
+            self?.startFlow()
         }
+        
+        self.addChildrenCoordinator(coordinator: coordinator)
+        coordinator.startFlow()
     }
     
     private func startAuthFlow() {
-        let authFlowCoordinator = AuthFlowCoordinator(window: window, settings: settings)
-        authFlowCoordinator.start()
-        authFlowCoordinator.onAuthSuccess = {
-            self.start()
+        let coordinator = AuthFlowCoordinator(window: window, rootViewController: NavigationController())
+        
+        coordinator.onSuccessFlow = { [weak self] coordinator, user in
+            self?.removeChildrenCoordinator(coordinator: coordinator)
+            self?.settings.loginUser(user)
+            self?.startMainFlow()
         }
+        
+        self.addChildrenCoordinator(coordinator: coordinator)
+        coordinator.startFlow()
     }
 }

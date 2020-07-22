@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iku-II-vC9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kupons Controller-->
+        <scene sceneID="l2r-pd-8Te">
+            <objects>
+                <viewController storyboardIdentifier="KuponsController" id="Gce-8D-wje" customClass="KuponsController" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GYa-kb-qpM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="OTh-RY-5LT"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7m3-Dy-7wJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zib-B0-8g1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="-33.482142857142854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="clU-NE-eVc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iku-II-vC9" customClass="NavigationController" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Caz-zB-0Nq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gce-8D-wje" kind="relationship" relationship="rootViewController" id="e8M-GX-hqM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9B-Zk-Ttr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="-33.482142857142854"/>
+        </scene>
+    </scenes>
+</document>
