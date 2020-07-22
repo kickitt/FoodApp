@@ -10,6 +10,7 @@
 		30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */; };
 		301358CB24BEF5D300416177 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CA24BEF5D300416177 /* AuthButton.swift */; };
 		301358CD24BF261700416177 /* FieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CC24BF261700416177 /* FieldsValidator.swift */; };
+		30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1ABFB24C864DF000EAE1C /* RestoreController.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
 		E78F90EB24C2118000860461 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F90EA24C2118000860461 /* MainCoordinator.swift */; };
 		E78F90F124C2140700860461 /* Kupons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78F90F024C2140700860461 /* Kupons.storyboard */; };
@@ -51,6 +52,7 @@
 		30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		301358CA24BEF5D300416177 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		301358CC24BF261700416177 /* FieldsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsValidator.swift; sourceTree = "<group>"; };
+		30B1ABFB24C864DF000EAE1C /* RestoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreController.swift; sourceTree = "<group>"; };
 		54B81FF14751E81C8551CD44 /* Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
 		E78F90EA24C2118000860461 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E78F90F024C2140700860461 /* Kupons.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Kupons.storyboard; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				E7A50E9B24B8D7D6007274E2 /* LoginController.swift */,
 				E7A50E9A24B8D7D6007274E2 /* RegistrationController.swift */,
 				E7A50E9C24B8D7D6007274E2 /* RestorePasswordController.swift */,
+				30B1ABFB24C864DF000EAE1C /* RestoreController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				E78F90FF24C2145A00860461 /* LessonsController.swift in Sources */,
 				E7A50EAB24B8D7D7007274E2 /* User.swift in Sources */,
 				301358CD24BF261700416177 /* FieldsValidator.swift in Sources */,
+				30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */,
 				E7B0A54224B8E2E600221B50 /* R.generated.swift in Sources */,
 				E7A50EB724B8D7D7007274E2 /* NavigationController.swift in Sources */,
 				E7A50E7D24B8D790007274E2 /* AppDelegate.swift in Sources */,

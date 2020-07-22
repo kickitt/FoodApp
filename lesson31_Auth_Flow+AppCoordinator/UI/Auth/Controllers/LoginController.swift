@@ -22,13 +22,8 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
+
     override func setupView() {
         super.setupView()
         
@@ -106,5 +101,4 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         }
         return true
     }
-    
 }

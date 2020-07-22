@@ -60,9 +60,12 @@ class AuthFlowCoordinator: Coordinator {
     }
 
     private func startResetPass() {
-         if let controller = R.storyboard.auth.restorePasswordController() {
-            rootViewController.pushViewController(controller, animated: true)
-         }
+//        if let controller = R.storyboard.auth.restorePasswordController() {
+//            rootViewController.pushViewController(controller, animated: true)
+//         }
+        
+        let controller = RestoreController()
+        rootViewController.pushViewController(controller, animated: true)
     }
     
 }

@@ -49,4 +49,8 @@ class AppSettings {
         self.user = nil
         UserDefaults.standard.removeObject(forKey: Key.UserLoggedKey)
     }
+    
+    func updateUser() {
+        
+    }
 }

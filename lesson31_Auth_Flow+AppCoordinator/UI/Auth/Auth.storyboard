@@ -126,7 +126,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="583-DX-6rE"/>
+                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="eGY-rp-PJl"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLH-eS-Yhn">
@@ -134,7 +134,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="60b-V6-6Xw"/>
+                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="8zY-kC-TDg"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zl0-OT-UHU">
@@ -142,7 +142,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="fow-3h-vsy"/>
+                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="haG-td-byY"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWb-xA-NFb">
@@ -150,7 +150,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="RA0-P1-WoF"/>
+                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="IjN-dw-0qk"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72N-4N-BZ1" customClass="AuthButton" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target">
@@ -167,10 +167,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="HYc-zv-Hw5"/>
+                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="SOY-mk-GhO"/>
                                         </connections>
                                     </textField>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="OWb-xA-NFb" firstAttribute="leading" secondItem="arP-tb-Eer" secondAttribute="leading" constant="40" id="3TO-fN-WYn"/>
                                     <constraint firstItem="mLH-eS-Yhn" firstAttribute="leading" secondItem="arP-tb-Eer" secondAttribute="leading" constant="40" id="6Om-ta-Zus"/>
@@ -193,6 +194,9 @@
                                     <constraint firstItem="eVx-Md-Kjh" firstAttribute="top" secondItem="arP-tb-Eer" secondAttribute="top" constant="130" id="oJt-ZQ-Aud"/>
                                     <constraint firstAttribute="trailing" secondItem="Zl0-OT-UHU" secondAttribute="trailing" constant="40" id="sSv-Kh-9gu"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kD5-tJ-igs" appends="YES" id="b4W-0X-RXp"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -206,7 +210,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="eiC-6K-GRg"/>
                     <connections>
-                        <outlet property="BottomConstraint" destination="1Uy-ux-Ia5" id="Ltl-9g-3Yj"/>
                         <outlet property="confirmButton" destination="72N-4N-BZ1" id="cuO-Qu-SA0"/>
                         <outlet property="confirmPassField" destination="OWb-xA-NFb" id="jEo-eJ-7jT"/>
                         <outlet property="emailField" destination="mLH-eS-Yhn" id="6AV-Gl-ikv"/>
@@ -216,6 +219,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20L-80-ULV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kD5-tJ-igs">
+                    <connections>
+                        <action selector="touchesBegun" destination="XmP-lf-r5I" id="Ux1-QV-PxJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1519" y="-32"/>
         </scene>
@@ -226,7 +234,49 @@
                     <view key="view" contentMode="scaleToFill" id="u5f-lI-4hd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKO-PQ-uB0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Provide your phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQh-yG-n4I">
+                                        <rect key="frame" x="40" y="130" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide your phone number to restore password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRG-oT-IIv">
+                                        <rect key="frame" x="40" y="40" width="334" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="20D-Ch-UL2">
+                                        <rect key="frame" x="40" y="204" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PQh-yG-n4I" firstAttribute="top" secondItem="fRG-oT-IIv" secondAttribute="bottom" constant="42" id="AfW-I9-NLE"/>
+                                    <constraint firstItem="PQh-yG-n4I" firstAttribute="leading" secondItem="UKO-PQ-uB0" secondAttribute="leading" constant="40" id="J2P-Po-qOt"/>
+                                    <constraint firstItem="fRG-oT-IIv" firstAttribute="leading" secondItem="UKO-PQ-uB0" secondAttribute="leading" constant="40" id="Jbl-1f-4U6"/>
+                                    <constraint firstItem="PQh-yG-n4I" firstAttribute="centerX" secondItem="UKO-PQ-uB0" secondAttribute="centerX" id="LAh-Ke-gjC"/>
+                                    <constraint firstAttribute="trailing" secondItem="PQh-yG-n4I" secondAttribute="trailing" constant="40" id="SbB-lW-BWZ"/>
+                                    <constraint firstItem="20D-Ch-UL2" firstAttribute="top" secondItem="PQh-yG-n4I" secondAttribute="bottom" constant="40" id="dlG-F9-ZbZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="fRG-oT-IIv" secondAttribute="trailing" constant="40" id="eKo-2m-WuU"/>
+                                    <constraint firstItem="fRG-oT-IIv" firstAttribute="top" secondItem="UKO-PQ-uB0" secondAttribute="top" constant="40" id="iqd-jG-KP6"/>
+                                    <constraint firstAttribute="trailing" secondItem="20D-Ch-UL2" secondAttribute="trailing" constant="40" id="j0e-CV-hH9"/>
+                                    <constraint firstAttribute="bottom" secondItem="20D-Ch-UL2" secondAttribute="bottom" constant="580" id="jZ3-aa-D8f"/>
+                                    <constraint firstItem="20D-Ch-UL2" firstAttribute="leading" secondItem="UKO-PQ-uB0" secondAttribute="leading" constant="40" id="mUt-Hp-fmc"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UKO-PQ-uB0" firstAttribute="leading" secondItem="2TG-zb-eWW" secondAttribute="leading" id="4aC-Up-UFd"/>
+                            <constraint firstItem="2TG-zb-eWW" firstAttribute="bottom" secondItem="UKO-PQ-uB0" secondAttribute="bottom" id="Atb-su-cZb"/>
+                            <constraint firstItem="2TG-zb-eWW" firstAttribute="trailing" secondItem="UKO-PQ-uB0" secondAttribute="trailing" id="qz4-V7-zW0"/>
+                            <constraint firstItem="UKO-PQ-uB0" firstAttribute="top" secondItem="2TG-zb-eWW" secondAttribute="top" id="wA6-x3-xbZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2TG-zb-eWW"/>
                     </view>
                     <navigationItem key="navigationItem" id="tsv-2b-XPW"/>

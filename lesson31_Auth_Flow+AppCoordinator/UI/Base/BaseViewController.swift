@@ -44,5 +44,8 @@ class BaseViewController: UIViewController {
     func setupView() {
         self.view.backgroundColor = UIColor(red: 53/255, green: 132/255, blue: 159/255, alpha: 1)
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }

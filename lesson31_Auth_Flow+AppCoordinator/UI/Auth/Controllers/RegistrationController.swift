@@ -16,15 +16,9 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     @IBOutlet private var passField: UITextField?
     @IBOutlet private var confirmPassField: UITextField?
     @IBOutlet private var confirmButton: UIButton?
-    @IBOutlet private var BottomConstraint: NSLayoutConstraint!
-    
     
     var onRegSuccess: ((User)->())?
     var onRegFailure: (()->())?
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
     
     override func setupView() {
         super.setupView()
@@ -73,23 +67,23 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         confirmPassField?.isSecureTextEntry = true
         
         confirmButton?.isEnabled = false
-        confirmButton?.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 0.3)
         
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(
-            forName: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil, queue: .main) { [weak self] (notification) in
-                self?.handleKeyboard(notification: notification)
-        }
-        notificationCenter.addObserver(
-            forName: UIResponder.keyboardWillHideNotification,
-            object: nil, queue: .main) { [weak self] (notification) in
-                self?.handleKeyboard(notification: notification)
-        }
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //MARK: Override Deinit
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - Actions
+    
+    @IBAction private func touchesBegun() {
+        view.endEditing(true)
+    }
+    
     @IBAction private func confirmButtonClicked() {
         
         if
@@ -110,7 +104,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction private func editingChanged(_ textField: UITextField) {
+    @IBAction private func editingChanged() {
         
         guard let nameF = nameField,
             let emailF = emailField,
@@ -122,36 +116,23 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         
         if nameF.text!.count > 0 && emailF.text!.count > 0 && phoneF.text!.count > 0 && passF.text!.count > 0 && confirmPassF.text!.count > 0 {
             confirmButton?.isEnabled = true
-            confirmButton?.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 1)
         } else  {
             confirmButton?.isEnabled = false
-            confirmButton?.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 0.3)
         }
     }
     
     //MARK: - Private Methods
     
-    func handleKeyboard(notification: Notification) {
-       // 1
-      guard notification.name == UIResponder.keyboardWillChangeFrameNotification else {
-        BottomConstraint.constant = 0
-        view.layoutIfNeeded()
-        return
-      }
-
-      guard
-        let info = notification.userInfo,
-        let keyboardFrame = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        else {
-          return
-      }
-        
-      // 2
-      let keyboardHeight = keyboardFrame.cgRectValue.size.height
-      UIView.animate(withDuration: 0.1, animations: { () -> Void in
-        self.BottomConstraint.constant = keyboardHeight
-        self.view.layoutIfNeeded()
-      })
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 80
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     //MARK: - UITextFieldDelegate
