@@ -13,6 +13,7 @@
 		30085B2B24C17F710023889F /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30085B2A24C17F710023889F /* CoordinatorProtocol.swift */; };
 		301358CB24BEF5D300416177 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CA24BEF5D300416177 /* AuthButton.swift */; };
 		301358CD24BF261700416177 /* FieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CC24BF261700416177 /* FieldsValidator.swift */; };
+		AF2BAF2424C99CD400487900 /* SlideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAF2324C99CD400487900 /* SlideModel.swift */; };
 		AF9CB03B24C8BE1D00D5CDFA /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9CB03A24C8BE1D00D5CDFA /* TutorialCoordinator.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
 		E7A50E7D24B8D790007274E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A50E7C24B8D790007274E2 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		301358CA24BEF5D300416177 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		301358CC24BF261700416177 /* FieldsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsValidator.swift; sourceTree = "<group>"; };
 		54B81FF14751E81C8551CD44 /* Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
+		AF2BAF2324C99CD400487900 /* SlideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideModel.swift; sourceTree = "<group>"; };
 		AF9CB03A24C8BE1D00D5CDFA /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
 		E7A50E7924B8D790007274E2 /* lesson31_Auth_Flow+AppCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lesson31_Auth_Flow+AppCoordinator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A50E7C24B8D790007274E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E7A50E9424B8D7D6007274E2 /* User.swift */,
+				AF2BAF2324C99CD400487900 /* SlideModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E7A50EB624B8D7D7007274E2 /* BaseViewController.swift in Sources */,
 				E7A50EB324B8D7D7007274E2 /* StartController.swift in Sources */,
 				AF9CB03B24C8BE1D00D5CDFA /* TutorialCoordinator.swift in Sources */,
+				AF2BAF2424C99CD400487900 /* SlideModel.swift in Sources */,
 				30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */,
 				E7B0A53A24B8DD0F00221B50 /* AppCoordinator.swift in Sources */,
 				E7A50EA924B8D7D7007274E2 /* NSObject.swift in Sources */,
