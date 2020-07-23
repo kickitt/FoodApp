@@ -10,20 +10,19 @@ import UIKit
 import Rswift
 
 class TutorialCoordinator: AppCoordinator  {
-    var onTutorialIsFinish: (()->())?
+    var onTutorialIsFinish: ((TutorialCoordinator?)->())?
     
-    override func start() {
+    override func startFlow() {
        startTutorial()
     }
     
     private func startTutorial() {
         if let controller = R.storyboard.tutorial.tutorialController(){
             controller.onAppStarted = { [weak self] _ in
-                self?.settings.isShowedTutorial = true
-                self?.onTutorialIsFinish!()
+                self?.onTutorialIsFinish?(self)
             }
             let navController = NavigationController.init(rootViewController: controller)
-            window?.rootViewController = navController
+            window.rootViewController = navController
         }
     }
 }

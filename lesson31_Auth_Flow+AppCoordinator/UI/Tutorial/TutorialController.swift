@@ -21,7 +21,7 @@ class TutorialController: BaseViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl?
     @IBOutlet weak var customButton: TutorialButton?
     
-    var onAppStarted: ((TutorialController) -> ())?
+    var onAppStarted: ((TutorialController?) -> ())?
 
     
     var slides = SlideView.createSlides()
@@ -101,9 +101,7 @@ class TutorialController: BaseViewController, UIScrollViewDelegate {
                 } else {
                         // Start Login
                         debugPrint("Start Login")
-                        if let tutorialController = self {
-                            self?.onAppStarted?(tutorialController)
-                        }
+                        self?.onAppStarted?(self)
                     }
                 }
             }

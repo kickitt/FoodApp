@@ -17,6 +17,7 @@
 		AF2BAF7124C99EA000487900 /* TutorialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAF6D24C99E9F00487900 /* TutorialButton.swift */; };
 		AF9CB03B24C8BE1D00D5CDFA /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9CB03A24C8BE1D00D5CDFA /* TutorialCoordinator.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
+		E72B37EF24C9B02700F07DEF /* MyLessonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910424C2174400860461 /* MyLessonsCoordinator.swift */; };
 		E78F90EB24C2118000860461 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F90EA24C2118000860461 /* MainCoordinator.swift */; };
 		E78F90F124C2140700860461 /* Kupons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78F90F024C2140700860461 /* Kupons.storyboard */; };
 		E78F90F324C2140F00860461 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78F90F224C2140F00860461 /* Settings.storyboard */; };
@@ -28,7 +29,6 @@
 		E78F90FF24C2145A00860461 /* LessonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F90FE24C2145A00860461 /* LessonsController.swift */; };
 		E78F910124C2172E00860461 /* KuponsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910024C2172E00860461 /* KuponsCoordinator.swift */; };
 		E78F910324C2173B00860461 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910224C2173B00860461 /* SettingsCoordinator.swift */; };
-		E78F910524C2174400860461 /* MyLessonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910424C2174400860461 /* MyLessonsCoordinator.swift */; };
 		E78F910724C2174D00860461 /* LessonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910624C2174D00860461 /* LessonsCoordinator.swift */; };
 		E78F910C24C21CB600860461 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910A24C21CB500860461 /* Coordinator.swift */; };
 		E78F910D24C21CB600860461 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910B24C21CB500860461 /* CoordinatorProtocol.swift */; };
@@ -404,10 +404,7 @@
 			files = (
 				E7F1729A24C207A200B25942 /* Auth.storyboard in Resources */,
 				E7A50E8924B8D793007274E2 /* LaunchScreen.storyboard in Resources */,
-				30085B2524C090860023889F /* Registration.storyboard in Resources */,
-				E7A50EB224B8D7D7007274E2 /* Start.storyboard in Resources */,
 				AF2BAF7024C99EA000487900 /* Slide.xib in Resources */,
-				E7A50EB524B8D7D7007274E2 /* Main.storyboard in Resources */,
 				AF2BAF6F24C99EA000487900 /* Button.xib in Resources */,
 				E78F90F124C2140700860461 /* Kupons.storyboard in Resources */,
 				E78F90F324C2140F00860461 /* Settings.storyboard in Resources */,
@@ -492,11 +489,11 @@
 				E7A50EAB24B8D7D7007274E2 /* User.swift in Sources */,
 				301358CD24BF261700416177 /* FieldsValidator.swift in Sources */,
 				E7B0A54224B8E2E600221B50 /* R.generated.swift in Sources */,
+				E72B37EF24C9B02700F07DEF /* MyLessonsCoordinator.swift in Sources */,
 				E7A50EB724B8D7D7007274E2 /* NavigationController.swift in Sources */,
 				E7A50E7D24B8D790007274E2 /* AppDelegate.swift in Sources */,
 				E78F910C24C21CB600860461 /* Coordinator.swift in Sources */,
 				E7A50EB624B8D7D7007274E2 /* BaseViewController.swift in Sources */,
-				E7A50EB324B8D7D7007274E2 /* StartController.swift in Sources */,
 				AF9CB03B24C8BE1D00D5CDFA /* TutorialCoordinator.swift in Sources */,
 				AF2BAF2424C99CD400487900 /* SlideModel.swift in Sources */,
 				30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */,

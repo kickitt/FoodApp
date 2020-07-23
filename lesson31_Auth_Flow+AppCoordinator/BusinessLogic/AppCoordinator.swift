@@ -32,10 +32,13 @@ class AppCoordinator: Coordinator {
     
     private func startTutorialFlow() {
         let tutorialCoordinator = TutorialCoordinator(window: window, settings: settings)
-        tutorialCoordinator.start()
-        tutorialCoordinator.onTutorialIsFinish = {
-            self.start()
+        tutorialCoordinator.startFlow()
+        tutorialCoordinator.onTutorialIsFinish = { [weak self] coordinator in
+            self?.removeChildrenCoordinator(coordinator: coordinator)
+            self?.settings.isShowedTutorial = true
+            self?.startFlow()
         }
+        self.addChildrenCoordinator(coordinator: tutorialCoordinator)
     }
     
     private func startMainFlow() {
