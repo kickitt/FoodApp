@@ -31,20 +31,10 @@ class AppCoordinator: Coordinator {
     }
     
     private func startTutorialFlow() {
-<<<<<<< HEAD
         let tutorialCoordinator = TutorialCoordinator(window: window, settings: settings)
         tutorialCoordinator.start()
         tutorialCoordinator.onTutorialIsFinish = {
             self.start()
-=======
-        if let controller = R.storyboard.tutorial.tutorialController() {
-            controller.onAppStarted = { [weak self] _ in
-                self?.settings.isShowedTutorial = true
-                self?.startFlow()
-            }
-            let navController = NavigationController.init(rootViewController: controller)
-            window.rootViewController = navController
->>>>>>> 2e2fce010eba1bcffc2ee2f40a05f4b6b5d1a326
         }
     }
     

@@ -159,8 +159,7 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-<<<<<<< HEAD
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 13 images.
   struct image {
     /// Image `EiffelTower`.
     static let eiffelTower = Rswift.ImageResource(bundle: R.hostingBundle, name: "EiffelTower")
@@ -170,13 +169,10 @@ struct R: Rswift.Validatable {
     static let marker = Rswift.ImageResource(bundle: R.hostingBundle, name: "Marker")
     /// Image `VoiceRecognition`.
     static let voiceRecognition = Rswift.ImageResource(bundle: R.hostingBundle, name: "VoiceRecognition")
-    /// Image `icons8Right100Px1`.
-    static let icons8Right100Px1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8Right100Px1")
-=======
-  /// This `R.image` struct is generated, and contains static references to 8 images.
-  struct image {
     /// Image `allLessonsIcon`.
     static let allLessonsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "allLessonsIcon")
+    /// Image `icons8Right100Px1`.
+    static let icons8Right100Px1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8Right100Px1")
     /// Image `kuponIcon`.
     static let kuponIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "kuponIcon")
     /// Image `logoutIcon`.
@@ -187,16 +183,50 @@ struct R: Rswift.Validatable {
     static let restoreIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "restoreIcon")
     /// Image `settingsIcon`.
     static let settingsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settingsIcon")
->>>>>>> 2e2fce010eba1bcffc2ee2f40a05f4b6b5d1a326
     /// Image `splash`.
     static let splash = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash")
     /// Image `ups`.
     static let ups = Rswift.ImageResource(bundle: R.hostingBundle, name: "ups")
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "EiffelTower", bundle: ..., traitCollection: ...)`
+    static func eiffelTower(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eiffelTower, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "FoodAndWine", bundle: ..., traitCollection: ...)`
+    static func foodAndWine(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.foodAndWine, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Marker", bundle: ..., traitCollection: ...)`
+    static func marker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.marker, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "VoiceRecognition", bundle: ..., traitCollection: ...)`
+    static func voiceRecognition(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.voiceRecognition, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "allLessonsIcon", bundle: ..., traitCollection: ...)`
     static func allLessonsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.allLessonsIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "icons8Right100Px1", bundle: ..., traitCollection: ...)`
+    static func icons8Right100Px1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icons8Right100Px1, compatibleWith: traitCollection)
     }
     #endif
 
@@ -232,41 +262,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "settingsIcon", bundle: ..., traitCollection: ...)`
     static func settingsIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settingsIcon, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "EiffelTower", bundle: ..., traitCollection: ...)`
-    static func eiffelTower(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.eiffelTower, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "FoodAndWine", bundle: ..., traitCollection: ...)`
-    static func foodAndWine(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.foodAndWine, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "Marker", bundle: ..., traitCollection: ...)`
-    static func marker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.marker, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "VoiceRecognition", bundle: ..., traitCollection: ...)`
-    static func voiceRecognition(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.voiceRecognition, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "icons8Right100Px1", bundle: ..., traitCollection: ...)`
-    static func icons8Right100Px1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.icons8Right100Px1, compatibleWith: traitCollection)
     }
     #endif
 
