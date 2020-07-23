@@ -289,6 +289,12 @@
 		E7A50E7124B8D790007274E2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					scr1,
+					scr2,
+					scr3,
+					scr4,
+				);
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Bosov;

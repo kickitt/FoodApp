@@ -17,6 +17,13 @@ class TutorialCoordinator: AppCoordinator  {
     }
     
     private func startTutorial() {
-        
+        if let controller = R.storyboard.tutorial.tutorialController(){
+            controller.onAppStarted = { [weak self] _ in
+                self?.settings.isShowedTutorial = true
+                self?.onTutorialIsFinish!()
+            }
+            let navController = NavigationController.init(rootViewController: controller)
+            window?.rootViewController = navController
+        }
     }
 }
