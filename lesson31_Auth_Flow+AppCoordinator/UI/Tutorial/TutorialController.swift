@@ -35,16 +35,9 @@ class TutorialController: BaseViewController, UIScrollViewDelegate {
         setupButtonAction()
     }
     
-    //TODO: прописать в родительском контроллере
-//    override var prefersStatusBarHidden: Bool {
-//        return topViewController?.prefersStatusBarHidden ?? false
-//    } и отловить, когда показывается Tutorial
-    
-    
-    
-//    override var prefersStatusBarHidden: Bool {
-//        return true //false
-//    }
+    override var prefersStatusBarHidden: Bool {
+        return true //false
+    }
     
     //MARK: - Private
     private func setupSlideScrollView(slides : [SlideView]) {
