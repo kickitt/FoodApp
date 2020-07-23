@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialButton" customModule="TutorialSlider" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="hqC-jW-A9X"/>
+                <outlet property="imageButton" destination="1Lo-wS-iqQ" id="8Nw-Dt-QaI"/>
+                <outlet property="labelButton" destination="Ybh-il-hab" id="fJC-WY-yjB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Далее" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-il-hab">
+                    <rect key="frame" x="183.5" y="16.5" width="47.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8Right100Px1" translatesAutoresizingMaskIntoConstraints="NO" id="1Lo-wS-iqQ">
+                    <rect key="frame" x="372" y="21.5" width="14" height="9"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.20784313730000001" green="0.51764705879999995" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1Lo-wS-iqQ" secondAttribute="trailing" constant="28" id="OMD-bf-QRb"/>
+                <constraint firstItem="1Lo-wS-iqQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PCV-dq-ctE"/>
+                <constraint firstItem="Ybh-il-hab" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TdV-Io-quK"/>
+                <constraint firstItem="Ybh-il-hab" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="xh7-6F-u7Z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="r7l-SL-Eki" appends="YES" id="R3x-ua-Z7r"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="127.90178571428571"/>
+        </view>
+        <tapGestureRecognizer id="r7l-SL-Eki">
+            <connections>
+                <action selector="butttonTapped" destination="-1" id="a5z-V6-IZz"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="icons8Right100Px1" width="13.5" height="9"/>
+    </resources>
+</document>
