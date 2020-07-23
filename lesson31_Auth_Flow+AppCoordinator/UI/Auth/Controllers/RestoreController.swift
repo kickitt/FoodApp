@@ -15,28 +15,32 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
     private var headerLabel = UILabel()
     private var phoneField = UITextField()
     private var smsField = UITextField()
+    private var passField = UITextField()
+    private var confirmPassField = UITextField()
     private var proceedButton = AuthButton(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width - 160, height: 30))
     private var confirmButton = AuthButton(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width - 160, height: 30))
+    private var finishButton = AuthButton(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width - 160, height: 30))
     
     var userConfirmedAlert: Bool = false {
         didSet {
-            updateLayout()
+            setupSmsLayout()
         }
     }
-    
     var code: String = ""
     
     var onProceedSuccess: ((RestoreController)->())?
     var onProceedFailure: ((RestoreController)->())?
-    var onConfirmSuccess: ((User)->())?
+    var onConfirmSuccess: ((RestoreController)->())?
     var onConfirmFailure: (()->())?
+    var onFinishSuccess: ((RestoreController, User)->())?
+    var onFinishFailure: (()->())?
     
     override func setupView() {
         super.setupView()
-        setupLayout()
+        setupPhoneLayout()
     }
     
-    func setupLayout() {
+    private func setupPhoneLayout() {
         
         proceedButton.setTitle("Proceed", for: .normal)
         proceedButton.setTitleColor(.black, for: .normal)
@@ -48,9 +52,15 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         headerLabel.textAlignment = .center
         headerLabel.numberOfLines = 2
         
-        phoneField.backgroundColor = .white
+        phoneField.delegate = self
         phoneField.borderStyle = .roundedRect
+        phoneField.backgroundColor = .white
         phoneField.placeholder = "Phone"
+        phoneField.textContentType = .telephoneNumber
+        phoneField.returnKeyType = .send
+        phoneField.clearButtonMode = .whileEditing
+        phoneField.enablesReturnKeyAutomatically = true
+        phoneField.autocorrectionType = .no
         phoneField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
         
         view.addSubview(scrollView)
@@ -83,7 +93,7 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         }
     }
     
-    private func updateLayout() {
+    private func setupSmsLayout() {
         
         for view in scrollView.subviews {
             view.removeFromSuperview()
@@ -95,16 +105,21 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         confirmButton.isEnabled = false
         confirmButton.addTarget(self, action: #selector(onConfirmButtonClicked), for: .touchUpInside)
         
-        headerLabel.text = "Please enter the Code\n"
+        headerLabel.text = "Please enter the Code\n \(code)"
         headerLabel.textAlignment = .center
         headerLabel.numberOfLines = 2
         
+        smsField.delegate = self
+        smsField.placeholder = "Code"
+        smsField.returnKeyType = .send
+        smsField.enablesReturnKeyAutomatically = true
+        smsField.autocorrectionType = .no
         smsField.backgroundColor = .white
         smsField.borderStyle = .roundedRect
-        smsField.placeholder = "Code"
+        smsField.textContentType = .oneTimeCode
+        smsField.clearButtonMode = .whileEditing
         smsField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
         
-        view.addSubview(scrollView)
         scrollView.addSubview(headerLabel)
         scrollView.addSubview(smsField)
         scrollView.addSubview(confirmButton)
@@ -131,17 +146,94 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
             maker.left.equalTo(view.safeAreaLayoutGuide).inset(80)
             maker.right.equalTo(view.safeAreaLayoutGuide).inset(80)
             maker.bottom.greaterThanOrEqualToSuperview()
-
+            
+        }
+    }
+    
+    private func setupFinishLayout() {
+        
+        for view in scrollView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        finishButton.setTitle("Finish", for: .normal)
+        finishButton.setTitleColor(.black, for: .normal)
+        finishButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        finishButton.isEnabled = false
+        finishButton.addTarget(self, action: #selector(onFinishButtonClicked), for: .touchUpInside)
+        
+        headerLabel.text = "Please enter new Password\n"
+        headerLabel.textAlignment = .center
+        headerLabel.numberOfLines = 2
+        
+        passField.delegate = self
+        passField.placeholder = "New Password"
+        passField.returnKeyType = .next
+        passField.enablesReturnKeyAutomatically = true
+        passField.autocorrectionType = .no
+        passField.backgroundColor = .white
+        passField.borderStyle = .roundedRect
+        passField.textContentType = .newPassword
+        passField.clearButtonMode = .whileEditing
+        passField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
+        
+        confirmPassField.delegate = self
+        confirmPassField.placeholder = "Repeate Password"
+        confirmPassField.returnKeyType = .done
+        confirmPassField.enablesReturnKeyAutomatically = true
+        confirmPassField.autocorrectionType = .no
+        confirmPassField.backgroundColor = .white
+        confirmPassField.borderStyle = .roundedRect
+        confirmPassField.textContentType = .newPassword
+        confirmPassField.clearButtonMode = .whileEditing
+        confirmPassField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
+        
+        scrollView.addSubview(headerLabel)
+        scrollView.addSubview(passField)
+        scrollView.addSubview(confirmPassField)
+        scrollView.addSubview(finishButton)
+        
+        scrollView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+        headerLabel.snp.makeConstraints { maker in
+            maker.top.equalTo(view.safeAreaLayoutGuide).inset(40)
+            maker.left.equalTo(view.safeAreaLayoutGuide).inset(40)
+            maker.right.equalTo(view.safeAreaLayoutGuide).inset(40)
+            maker.centerX.equalToSuperview()
+        }
+        
+        passField.snp.makeConstraints { maker in
+            maker.top.equalTo(headerLabel.snp.bottom).offset(50)
+            maker.left.equalTo(view.safeAreaLayoutGuide).inset(40)
+            maker.right.equalTo(view.safeAreaLayoutGuide).inset(40)
+        }
+        
+        confirmPassField.snp.makeConstraints { maker in
+            maker.top.equalTo(passField.snp.bottom).offset(40)
+            maker.left.equalTo(view.safeAreaLayoutGuide).inset(40)
+            maker.right.equalTo(view.safeAreaLayoutGuide).inset(40)
+        }
+        
+        finishButton.snp.makeConstraints { maker in
+            maker.top.equalTo(confirmPassField.snp.bottom).offset(20)
+            maker.left.equalTo(view.safeAreaLayoutGuide).inset(80)
+            maker.right.equalTo(view.safeAreaLayoutGuide).inset(80)
+            maker.bottom.greaterThanOrEqualToSuperview()
+            
         }
     }
     
     //MARK: - Private Functions
-
+    
     @objc private func editingChanged(_ textField: UITextField) {
         if textField == phoneField && textField.text?.count != 0 {
             proceedButton.isEnabled = true
         } else if textField == smsField && smsField.text?.count != 0 {
             confirmButton.isEnabled = true
+        } else if passField.text?.count != 0 && confirmPassField.text?.count != 0{
+            finishButton.isEnabled = true
         }
     }
     
@@ -159,10 +251,29 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
     }
     
     @objc private func onConfirmButtonClicked() {
-        let user = User(name: "Test", email: "TEST@TEST.TEST", phone: nil, password: "test", photo: nil)
-        onConfirmSuccess?(user)
-        print("Clicked")
-        //TODO: MOCK.DB.UPDATE
+        print(code)
+        if smsField.text == code {
+            onConfirmSuccess?(self)
+            print("success")
+            setupFinishLayout()
+        } else {
+            onConfirmFailure?()
+            print("failure")
+        }
+    }
+    
+    @objc private func onFinishButtonClicked() {
+        
+        if
+            FieldsValidator.isPassValid(passField.text!),
+            FieldsValidator.isPassConfirmed(passField.text!, confirmPassField.text!) {
+            let user = User(name: "Test", email: "TEST@TEST.TEST", phone: nil, password: phoneField.text!, photo: nil)
+            onFinishSuccess?(self, user)
+            print("Clicked")
+            //TODO: MOCK.DB.UPDATE
+        } else {
+            onFinishFailure?()
+        }
     }
     
     //MARK: - UITextFieldDelegate
@@ -171,8 +282,13 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         
         if textField == phoneField {
             onProceedButtonClicked()
-        } else {
+        } else if textField == smsField {
             onConfirmButtonClicked()
+        } else if textField == passField {
+            confirmPassField.becomeFirstResponder()
+        } else {
+            confirmPassField.resignFirstResponder()
+            onFinishButtonClicked()
         }
         return true
     }

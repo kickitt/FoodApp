@@ -85,7 +85,6 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     }
     
     @IBAction private func confirmButtonClicked() {
-        
         if
             let nameF = nameField,
             let emailF = emailField,
@@ -105,7 +104,6 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     }
     
     @IBAction private func editingChanged() {
-        
         guard let nameF = nameField,
             let emailF = emailField,
             let phoneF = phoneField,
@@ -138,7 +136,6 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     //MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         switch textField {
         case nameField:
             emailField?.becomeFirstResponder()
