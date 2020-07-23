@@ -10,13 +10,23 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setupController()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupController()
+    }
+    
     deinit {
         print("deinit \(self.className)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupView()
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -27,7 +37,11 @@ class BaseViewController: UIViewController {
         return .default
     }
     
-    func setup() {
+    func setupController() {
+        
+    }
+    
+    func setupView() {
         self.view.backgroundColor = UIColor(red: 53/255, green: 132/255, blue: 159/255, alpha: 1)
     }
 

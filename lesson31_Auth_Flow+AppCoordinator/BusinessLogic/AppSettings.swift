@@ -38,15 +38,7 @@ class AppSettings {
         return user != nil
     }
     
-    //TODO: login user with mock
     func loginUser(_ user: User) {
-        self.user = user
-        if let data = try? JSONEncoder().encode(user) {
-            UserDefaults.standard.set(data, forKey: Key.UserLoggedKey)
-        }
-    }
-    
-    func registerUser(_ user: User) {
         self.user = user
         if let data = try? JSONEncoder().encode(user) {
             UserDefaults.standard.set(data, forKey: Key.UserLoggedKey)
@@ -57,6 +49,4 @@ class AppSettings {
         self.user = nil
         UserDefaults.standard.removeObject(forKey: Key.UserLoggedKey)
     }
-    
-    
 }

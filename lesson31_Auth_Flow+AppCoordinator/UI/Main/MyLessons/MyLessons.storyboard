@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p0H-oS-Pct">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Lessons Controller-->
+        <scene sceneID="o72-Up-6PB">
+            <objects>
+                <viewController storyboardIdentifier="MyLessonsController" id="Q30-tO-JjB" customClass="MyLessonsController" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vh3-Fr-9yf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ups" translatesAutoresizingMaskIntoConstraints="NO" id="SNS-9U-htQ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0JR-DS-Ccs" firstAttribute="bottom" secondItem="SNS-9U-htQ" secondAttribute="bottom" id="B6h-zZ-lnV"/>
+                            <constraint firstItem="SNS-9U-htQ" firstAttribute="top" secondItem="0JR-DS-Ccs" secondAttribute="top" id="Nca-id-6z6"/>
+                            <constraint firstItem="0JR-DS-Ccs" firstAttribute="trailing" secondItem="SNS-9U-htQ" secondAttribute="trailing" id="VHu-xC-XDa"/>
+                            <constraint firstItem="SNS-9U-htQ" firstAttribute="leading" secondItem="0JR-DS-Ccs" secondAttribute="leading" id="eHL-g1-Mjg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0JR-DS-Ccs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="syc-ML-MIx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcv-5Y-UxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926.08695652173924" y="51.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3iv-cd-hQH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p0H-oS-Pct" customClass="NavigationController" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q9R-BB-iqH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Q30-tO-JjB" kind="relationship" relationship="rootViewController" id="HdK-bj-vPl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ICB-A7-2JX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15.942028985507248" y="51.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ups" width="180" height="320"/>
+    </resources>
+</document>
