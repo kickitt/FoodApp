@@ -12,6 +12,7 @@ import Rswift
 class AuthFlowCoordinator: Coordinator {
     
     var onSuccessFlow: ((AuthFlowCoordinator?, User) -> ())?
+    var alertOkClicked: (()->())?
     private let rootViewController: UINavigationController
     
     init(window: UIWindow, rootViewController: UINavigationController) {
@@ -66,6 +67,28 @@ class AuthFlowCoordinator: Coordinator {
         
         let controller = RestoreController()
         rootViewController.pushViewController(controller, animated: true)
+        
+        controller.onProceedSuccess = { [weak self] _ in
+            let alert = UIAlertController(title: "Continue with Code from this SMS", message:"Code: \(String(UInt.random(in:1000...9999)))", preferredStyle: .alert)
+            //alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in controller.userConfirmedAlert = true})) //?????????
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        controller.onProceedFailure = { [weak self] _ in
+            let alert = UIAlertController(title: "Phone number is wrong", message: "Please provide correct number", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        
+        controller.onConfirmSuccess = { [weak self] _ in
+            
+        }
+        
+        controller.onConfirmFailure = { [weak self]  in
+            
+        }
     }
     
 }
