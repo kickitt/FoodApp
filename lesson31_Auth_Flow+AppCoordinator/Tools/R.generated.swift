@@ -159,10 +159,55 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
+    /// Image `EiffelTower`.
+    static let eiffelTower = Rswift.ImageResource(bundle: R.hostingBundle, name: "EiffelTower")
+    /// Image `FoodAndWine`.
+    static let foodAndWine = Rswift.ImageResource(bundle: R.hostingBundle, name: "FoodAndWine")
+    /// Image `Marker`.
+    static let marker = Rswift.ImageResource(bundle: R.hostingBundle, name: "Marker")
+    /// Image `VoiceRecognition`.
+    static let voiceRecognition = Rswift.ImageResource(bundle: R.hostingBundle, name: "VoiceRecognition")
+    /// Image `icons8Right100Px1`.
+    static let icons8Right100Px1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8Right100Px1")
     /// Image `splash`.
     static let splash = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "EiffelTower", bundle: ..., traitCollection: ...)`
+    static func eiffelTower(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eiffelTower, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "FoodAndWine", bundle: ..., traitCollection: ...)`
+    static func foodAndWine(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.foodAndWine, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Marker", bundle: ..., traitCollection: ...)`
+    static func marker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.marker, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "VoiceRecognition", bundle: ..., traitCollection: ...)`
+    static func voiceRecognition(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.voiceRecognition, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "icons8Right100Px1", bundle: ..., traitCollection: ...)`
+    static func icons8Right100Px1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icons8Right100Px1, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "splash", bundle: ..., traitCollection: ...)`
@@ -170,6 +215,40 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.splash, compatibleWith: traitCollection)
     }
     #endif
+
+    fileprivate init() {}
+  }
+
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  struct nib {
+    /// Nib `Button`.
+    static let button = _R.nib._Button()
+    /// Nib `Slide`.
+    static let slide = _R.nib._Slide()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "Button", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.button) instead")
+    static func button(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.button)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "Slide", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.slide) instead")
+    static func slide(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.slide)
+    }
+    #endif
+
+    static func button(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.button.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func slide(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SlideView? {
+      return R.nib.slide.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SlideView
+    }
 
     fileprivate init() {}
   }
@@ -190,9 +269,61 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _Button.validate()
+      try _Slide.validate()
+    }
+
+    struct _Button: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Button"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      func secondView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[1] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "icons8Right100Px1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icons8Right100Px1' is used in nib 'Button', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _Slide: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Slide"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SlideView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SlideView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "FoodAndWine", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FoodAndWine' is used in nib 'Slide', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
