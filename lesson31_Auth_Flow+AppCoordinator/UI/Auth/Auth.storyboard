@@ -126,7 +126,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="eGY-rp-PJl"/>
+                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="BWd-Cc-YDw"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLH-eS-Yhn">
@@ -134,7 +134,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="8zY-kC-TDg"/>
+                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="s6u-t1-PDb"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zl0-OT-UHU">
@@ -142,7 +142,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="haG-td-byY"/>
+                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="KND-aJ-pNF"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWb-xA-NFb">
@@ -150,7 +150,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="IjN-dw-0qk"/>
+                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="JiJ-Tx-hlM"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72N-4N-BZ1" customClass="AuthButton" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target">
@@ -167,7 +167,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingChanged" destination="XmP-lf-r5I" eventType="editingChanged" id="SOY-mk-GhO"/>
+                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="Eog-XK-lRj"/>
                                         </connections>
                                     </textField>
                                 </subviews>

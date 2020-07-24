@@ -25,7 +25,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         title = "Sign in"
         
         nameField?.delegate = self
-        nameField?.placeholder = "Name"
+        nameField?.placeholder = "Name: First Last"
         nameField?.returnKeyType = .next
         nameField?.enablesReturnKeyAutomatically = true
         nameField?.autocorrectionType = .no
@@ -33,7 +33,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         nameField?.clearButtonMode = .whileEditing
         
         emailField?.delegate = self
-        emailField?.placeholder = "E-mail"
+        emailField?.placeholder = "E-mail: user@mydomen.com"
         emailField?.returnKeyType = .next
         emailField?.enablesReturnKeyAutomatically = true
         emailField?.autocorrectionType = .no
@@ -41,7 +41,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         emailField?.clearButtonMode = .whileEditing
         
         phoneField?.delegate = self
-        phoneField?.placeholder = "Phone"
+        phoneField?.placeholder = "Phone: 380991234567"
         phoneField?.returnKeyType = .next
         phoneField?.enablesReturnKeyAutomatically = true
         phoneField?.autocorrectionType = .no
@@ -49,7 +49,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         phoneField?.clearButtonMode = .whileEditing
         
         passField?.delegate = self
-        passField?.placeholder = "Password"
+        passField?.placeholder = "Password: min 8 charachters"
         passField?.returnKeyType = .next
         passField?.enablesReturnKeyAutomatically = true //??
         passField?.autocorrectionType = .no
@@ -58,7 +58,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         passField?.isSecureTextEntry = true
         
         confirmPassField?.delegate = self
-        confirmPassField?.placeholder = "Password"
+        confirmPassField?.placeholder = "Confirm password"
         confirmPassField?.returnKeyType = .done
         confirmPassField?.enablesReturnKeyAutomatically = true //??
         confirmPassField?.autocorrectionType = .no
@@ -91,11 +91,11 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
             let phoneF = phoneField,
             let passF = passField,
             let confirmPassF = confirmPassField,
-            FieldsValidator.isNameValid(nameF.text!),
-            FieldsValidator.isEmailValid(emailF.text!),
-            FieldsValidator.isPhoneValid(phoneF.text!),
-            FieldsValidator.isPassValid(passF.text!),
-            FieldsValidator.isPassConfirmed(passF.text!, confirmPassF.text!){
+            FieldsValidator.isNameValid(nameF),
+            FieldsValidator.isEmailValid(emailF),
+            FieldsValidator.isPhoneValid(phoneF),
+            FieldsValidator.isPassValid(passF),
+            FieldsValidator.isPassConfirmed(passF, confirmPassF){
             let user = User(name: nameF.text!, email: emailF.text!, phone: phoneF.text!, password: confirmPassF.text!, photo: nil)
             onRegSuccess?(user)
         } else {
@@ -103,7 +103,8 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction private func editingChanged() {
+    @IBAction private func editingChanged(_ textField: UITextField) {
+        textField.layer.borderWidth = 0
         guard let nameF = nameField,
             let emailF = emailField,
             let phoneF = phoneField,
@@ -135,6 +136,9 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     
     //MARK: - UITextFieldDelegate
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case nameField:
@@ -151,4 +155,5 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         }
         return true
     }
+    
 }

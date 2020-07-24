@@ -40,7 +40,6 @@ class AuthFlowCoordinator: Coordinator {
             controller.onRestore = { [weak self] in
                 self?.startResetPass()
             }
-            
             rootViewController.viewControllers = [controller]
             window.rootViewController = rootViewController
         }
@@ -66,7 +65,6 @@ class AuthFlowCoordinator: Coordinator {
         rootViewController.pushViewController(controller, animated: true)
         
         controller.onProceedSuccess = { [weak self] _ in
-            
             let code = String(UInt.random(in:1000...9999))
             let alert = UIAlertController(title: "Continue with Code from this SMS", message:"Code: \(code)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in

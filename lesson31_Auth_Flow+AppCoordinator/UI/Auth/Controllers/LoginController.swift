@@ -30,18 +30,23 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         title = "Login"
         
         emailField?.delegate = self
-        emailField?.placeholder = "E-mail"
+        emailField?.placeholder = "E-mail: user@mydomen.com"
+        emailField?.keyboardType = .emailAddress
         emailField?.returnKeyType = .next
         emailField?.enablesReturnKeyAutomatically = true
         emailField?.autocorrectionType = .no
+        emailField?.backgroundColor = .white
+        emailField?.borderStyle = .roundedRect
         emailField?.textContentType = .emailAddress
         emailField?.clearButtonMode = .whileEditing
         
         passField?.delegate = self
-        passField?.placeholder = "Password"
+        passField?.placeholder = "New Password: min 8 characters"
         passField?.returnKeyType = .done
-        passField?.enablesReturnKeyAutomatically = true //??
+        passField?.enablesReturnKeyAutomatically = true
         passField?.autocorrectionType = .no
+        passField?.backgroundColor = .white
+        passField?.borderStyle = .roundedRect
         passField?.textContentType = .password
         passField?.clearButtonMode = .whileEditing
         passField?.isSecureTextEntry = true
@@ -52,7 +57,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     //MARK: - Actions
     
     @IBAction private func editingChanged(_ textField: UITextField) {
-        
+        textField.layer.borderWidth = 0
         guard let emailF = emailField, let passF = passField else {
             return
         }
@@ -65,17 +70,17 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     }
     
     @IBAction private func loginButtonClicked() {
-        
         guard let emailF = emailField, let passF = passField else {
             return
         }
         
-        if FieldsValidator.isEmailValid(emailF.text!), FieldsValidator.isPassValid(passF.text!) {
+        if
+            FieldsValidator.isEmailValid(emailF),
+            FieldsValidator.isPassValid(passF) {
             //IF USER EXIST IN BASE return his settings
             let user = User(name: nil, email: emailF.text!, phone: nil, password: passF.text!, photo: nil)
             onLoginSuccess?(user, self)
             //TODO: MOCK.DB
-            //onLoginSuccess?(self)
         } else {
             onLoginFailure?(self)
         }
@@ -90,9 +95,10 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     }
     
     //MARK: - UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == emailField {
             passField?.becomeFirstResponder()
         } else {

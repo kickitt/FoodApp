@@ -7,55 +7,76 @@
 //
 
 import Foundation
+import UIKit
 
 final class FieldsValidator {
     
-    static func isNameValid(_ value: String) -> Bool {
-        do {
-            if try NSRegularExpression(pattern: "^[A-Za-z]+ [A-Za-z]", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+    static func notValidField(_ field: UITextField) {
+        field.layer.borderWidth = 0.8
+        field.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    static func isNameValid(_ field: UITextField) -> Bool{
+        if let value = field.text, value.count != 0 {
+            do {
+                if try NSRegularExpression(pattern: "^[A-Za-z]+ [A-Za-z]", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                    notValidField(field)
+                    return false
+                }
+            } catch {
                 return false
             }
-        } catch {
-            return false
         }
         return true
     }
     
-   static func isEmailValid(_ value: String) -> Bool {
-        do {
-            if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+    static func isEmailValid(_ field: UITextField) -> Bool {
+        if let value = field.text, value.count != 0 {
+            do {
+                if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                    notValidField(field)
+                    return false
+                }
+            } catch {
                 return false
             }
-        } catch {
-            return false
         }
         return true
     }
     
-    static func isPhoneValid(_ value: String) -> Bool {
-//        do {
-//            if try NSRegularExpression(pattern: "^[0-9]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-//                return false
-//            }
-//        } catch {
-//            return false
-//        }
-//        return true
-        let PHONE_REGEX = "^\\d{3}\\d{3}\\d{4}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-        let result = phoneTest.evaluate(with: value)
-        return result
-    }
     
-    static func isPassValid(_ value: String) -> Bool {
-        if value.count < 8 {
-            return false
+    static func isPhoneValid(_ field: UITextField) -> Bool {
+        if let value = field.text, value.count != 0 {
+            do {
+                if try NSRegularExpression(pattern: "^[0-9]{10,13}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                    notValidField(field)
+                    return false
+                }
+            } catch {
+                return false
+            }
         }
         return true
     }
+
     
-    static func isPassConfirmed(_ passValue: String, _ confirmingPassValue: String) -> Bool {
-        if passValue != confirmingPassValue {
+    static func isPassValid(_ field: UITextField) -> Bool {
+        if let value = field.text, value.count != 0 {
+                   do {
+                       if try NSRegularExpression(pattern: /*"^[A-Z0-9a-z._%+-].{8,}$"*/ "(?=.*[a-z])(?=.*[A-Z]).{8,}", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                           notValidField(field)
+                           return false
+                       }
+                   } catch {
+                       return false
+                   }
+               }
+        return true
+    }
+    
+    static func isPassConfirmed(_ passField: UITextField, _ confirmPassField: UITextField) -> Bool {
+        if let firstValue = passField.text, let secondValue = confirmPassField.text, firstValue != secondValue {
+            notValidField(confirmPassField)
             return false
         }
         return true

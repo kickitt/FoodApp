@@ -53,14 +53,15 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         headerLabel.numberOfLines = 2
         
         phoneField.delegate = self
-        phoneField.borderStyle = .roundedRect
-        phoneField.backgroundColor = .white
-        phoneField.placeholder = "Phone"
-        phoneField.textContentType = .telephoneNumber
+        phoneField.placeholder = "Phone: 380991234567"
+        phoneField.keyboardType = .numberPad
         phoneField.returnKeyType = .send
-        phoneField.clearButtonMode = .whileEditing
         phoneField.enablesReturnKeyAutomatically = true
         phoneField.autocorrectionType = .no
+        phoneField.backgroundColor = .white
+        phoneField.borderStyle = .roundedRect
+        phoneField.textContentType = .telephoneNumber
+        phoneField.clearButtonMode = .whileEditing
         phoneField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
         
         view.addSubview(scrollView)
@@ -111,6 +112,7 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         
         smsField.delegate = self
         smsField.placeholder = "Code"
+        smsField.keyboardType = .numberPad
         smsField.returnKeyType = .send
         smsField.enablesReturnKeyAutomatically = true
         smsField.autocorrectionType = .no
@@ -167,25 +169,27 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         headerLabel.numberOfLines = 2
         
         passField.delegate = self
-        passField.placeholder = "New Password"
+        passField.placeholder = "New Password: min 8 characters"
         passField.returnKeyType = .next
         passField.enablesReturnKeyAutomatically = true
         passField.autocorrectionType = .no
         passField.backgroundColor = .white
         passField.borderStyle = .roundedRect
-        passField.textContentType = .newPassword
+        passField.textContentType = .password
         passField.clearButtonMode = .whileEditing
+        passField.isSecureTextEntry = true
         passField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
         
         confirmPassField.delegate = self
-        confirmPassField.placeholder = "Repeate Password"
+        confirmPassField.placeholder = "Confirm Password"
         confirmPassField.returnKeyType = .done
         confirmPassField.enablesReturnKeyAutomatically = true
         confirmPassField.autocorrectionType = .no
         confirmPassField.backgroundColor = .white
         confirmPassField.borderStyle = .roundedRect
-        confirmPassField.textContentType = .newPassword
+        confirmPassField.textContentType = .password
         confirmPassField.clearButtonMode = .whileEditing
+        confirmPassField.isSecureTextEntry = true
         confirmPassField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
         
         scrollView.addSubview(headerLabel)
@@ -228,6 +232,7 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
     //MARK: - Private Functions
     
     @objc private func editingChanged(_ textField: UITextField) {
+        textField.layer.borderWidth = 0
         if textField == phoneField && textField.text?.count != 0 {
             proceedButton.isEnabled = true
         } else if textField == smsField && smsField.text?.count != 0 {
@@ -238,14 +243,11 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
     }
     
     @objc private func onProceedButtonClicked() {
-        
-        if FieldsValidator.isPhoneValid(phoneField.text!) {
+        if FieldsValidator.isPhoneValid(phoneField) {
             onProceedSuccess?(self)
-            print("proceed")
             //TODO: MOCK.DB.request
         } else {
             onProceedFailure?(self)
-            print("Wrong phone")
         }
         
     }
@@ -254,22 +256,18 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
         print(code)
         if smsField.text == code {
             onConfirmSuccess?(self)
-            print("success")
             setupFinishLayout()
         } else {
             onConfirmFailure?()
-            print("failure")
         }
     }
     
     @objc private func onFinishButtonClicked() {
-        
         if
-            FieldsValidator.isPassValid(passField.text!),
-            FieldsValidator.isPassConfirmed(passField.text!, confirmPassField.text!) {
+            FieldsValidator.isPassValid(passField),
+            FieldsValidator.isPassConfirmed(passField, confirmPassField) {
             let user = User(name: "Test", email: "TEST@TEST.TEST", phone: nil, password: phoneField.text!, photo: nil)
             onFinishSuccess?(self, user)
-            print("Clicked")
             //TODO: MOCK.DB.UPDATE
         } else {
             onFinishFailure?()
@@ -277,9 +275,11 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
     }
     
     //MARK: - UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == phoneField {
             onProceedButtonClicked()
         } else if textField == smsField {

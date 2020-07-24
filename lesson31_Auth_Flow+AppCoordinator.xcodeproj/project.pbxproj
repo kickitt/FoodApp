@@ -11,6 +11,7 @@
 		301358CB24BEF5D300416177 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CA24BEF5D300416177 /* AuthButton.swift */; };
 		301358CD24BF261700416177 /* FieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CC24BF261700416177 /* FieldsValidator.swift */; };
 		30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1ABFB24C864DF000EAE1C /* RestoreController.swift */; };
+		30B3416324CAE1C90038057A /* FieldsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3416224CAE1C90038057A /* FieldsFormatter.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
 		E78F90EB24C2118000860461 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F90EA24C2118000860461 /* MainCoordinator.swift */; };
 		E78F90F124C2140700860461 /* Kupons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78F90F024C2140700860461 /* Kupons.storyboard */; };
@@ -53,6 +54,7 @@
 		301358CA24BEF5D300416177 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		301358CC24BF261700416177 /* FieldsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsValidator.swift; sourceTree = "<group>"; };
 		30B1ABFB24C864DF000EAE1C /* RestoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreController.swift; sourceTree = "<group>"; };
+		30B3416224CAE1C90038057A /* FieldsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsFormatter.swift; sourceTree = "<group>"; };
 		54B81FF14751E81C8551CD44 /* Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
 		E78F90EA24C2118000860461 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E78F90F024C2140700860461 /* Kupons.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Kupons.storyboard; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			children = (
 				E7B0A54124B8E2E600221B50 /* R.generated.swift */,
 				301358CC24BF261700416177 /* FieldsValidator.swift */,
+				30B3416224CAE1C90038057A /* FieldsFormatter.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				E7A50EAC24B8D7D7007274E2 /* TutorialController.swift in Sources */,
 				E78F910724C2174D00860461 /* LessonsCoordinator.swift in Sources */,
 				E78F910324C2173B00860461 /* SettingsCoordinator.swift in Sources */,
+				30B3416324CAE1C90038057A /* FieldsFormatter.swift in Sources */,
 				E7A50EAE24B8D7D7007274E2 /* RegistrationController.swift in Sources */,
 				E7A50EB024B8D7D7007274E2 /* RestorePasswordController.swift in Sources */,
 				E7A50EAA24B8D7D7007274E2 /* UIViewController.swift in Sources */,
