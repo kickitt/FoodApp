@@ -275,7 +275,7 @@ class RestoreController: BaseViewController, UITextFieldDelegate {
     }
     
     //MARK: - UITextFieldDelegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
     

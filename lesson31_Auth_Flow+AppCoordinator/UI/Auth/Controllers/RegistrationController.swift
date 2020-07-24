@@ -136,7 +136,15 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
     
     //MARK: - UITextFieldDelegate
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case nameField:
+            FieldsFormatter.nameFormatter(textField)
+        case phoneField:
+            FieldsFormatter.phoneFormatter(textField)
+        default:
+            break
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

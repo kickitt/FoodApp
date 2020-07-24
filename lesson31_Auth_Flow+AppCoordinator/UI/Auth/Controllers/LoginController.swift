@@ -95,7 +95,8 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     }
     
     //MARK: - UITextFieldDelegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
