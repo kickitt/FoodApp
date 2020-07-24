@@ -64,12 +64,12 @@ class AuthFlowCoordinator: Coordinator {
         let controller = RestoreController()
         rootViewController.pushViewController(controller, animated: true)
         
-        controller.onProceedSuccess = { [weak self] _ in
+        controller.onProceedSuccess = { [weak controller, weak self] _ in
             let code = String(UInt.random(in:1000...9999))
             let alert = UIAlertController(title: "Continue with Code from this SMS", message:"Code: \(code)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in
-                controller.code = code
-                controller.userConfirmedAlert = true
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                controller?.code = code
+                controller?.userConfirmedAlert = true
             }))
             self?.window.rootViewController?.present(alert, animated: true, completion: nil)
         }
@@ -90,9 +90,10 @@ class AuthFlowCoordinator: Coordinator {
         controller.onFinishSuccess = { [weak self] _, user in
             //self?.onSuccessFlow?(self, user)
             let alert = UIAlertController(title: "Greate", message: "Your password was successfully restored", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in self?.startLogin()}))
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in
+                self?.startLogin()
+            }))
             self?.window.rootViewController?.present(alert, animated: true, completion: nil)
-            
         }
         
         controller.onFinishFailure = { [weak self]  in
