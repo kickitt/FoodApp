@@ -42,7 +42,7 @@ class AppCoordinator: Coordinator {
     }
     
     private func startMainFlow() {
-        let coordinator = MainCoordinator(window: window)
+        let coordinator = MainCoordinator(window: window, appSettings: settings)
         coordinator.onSuccessFlow = { [weak self] coordinator in
             self?.removeChildrenCoordinator(coordinator: coordinator)
             self?.settings.logoutUser()

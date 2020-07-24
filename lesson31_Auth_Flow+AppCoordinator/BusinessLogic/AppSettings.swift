@@ -25,6 +25,12 @@ class AppSettings {
         }
     }
     
+    var currentUser: User? {
+        get {
+            return user
+        }
+    }
+    
     var isShowedTutorial: Bool {
         get {
             return UserDefaults.standard.bool(forKey: Key.IsShowedTutorialKey)
@@ -48,5 +54,9 @@ class AppSettings {
     func logoutUser() {
         self.user = nil
         UserDefaults.standard.removeObject(forKey: Key.UserLoggedKey)
+    }
+    
+    func updateUser() {
+        
     }
 }

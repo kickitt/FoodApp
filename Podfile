@@ -7,5 +7,6 @@ target 'lesson31_Auth_Flow+AppCoordinator' do
 
   # Pods for lesson31_Auth_Flow+AppCoordinator
     pod 'R.swift'
-    pod 'SnapKit'
+    pod 'SnapKit', '~> 5.0.0'
+    pod 'ProgressHUD'
 end

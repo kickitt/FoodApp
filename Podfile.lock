@@ -1,24 +1,28 @@
 PODS:
+  - ProgressHUD (2.70)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - ProgressHUD
   - R.swift
-  - SnapKit
+  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - ProgressHUD
     - R.swift
     - R.swift.Library
     - SnapKit
 
 SPEC CHECKSUMS:
+  ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 1f427fb97f0f2f9c7a8d81aa2b14f69ea455a5ab
+PODFILE CHECKSUM: f0ae180ca3ac9151f8cfde0645edb6989f89ea5b
 
 COCOAPODS: 1.9.3

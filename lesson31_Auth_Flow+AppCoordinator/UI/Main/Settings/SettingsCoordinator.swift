@@ -14,8 +14,16 @@ class SettingsCoordinator: Coordinator {
     
     var onLogout: (()->())?
     
+    private var appSettings: AppSettings
+    
+    init(window: UIWindow, appSettings: AppSettings) {
+        self.appSettings = appSettings
+        super.init(window: window)
+    }
+    
     override func startFlow() {
         if let controller = R.storyboard.settings.settingsController() {
+            controller.user = appSettings.currentUser
             controller.onLogoutClicked = { [weak self] in
                 self?.onLogout?()
             }

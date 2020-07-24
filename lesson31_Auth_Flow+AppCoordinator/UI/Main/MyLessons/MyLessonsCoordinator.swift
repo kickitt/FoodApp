@@ -14,7 +14,19 @@ class MyLessonsCoordinator: Coordinator {
     
     override func startFlow() {
         if let controller = R.storyboard.myLessons.myLessonsController() {
+            
+            controller.viewModel = MyLessonsViewModel()
+            controller.onSelectedLesson = { [weak self] lesson in
+                self?.openLessonDetailed(lesson)
+            }
             rootController.viewControllers = [controller]
+        }
+    }
+    
+    private func openLessonDetailed(_ lesson: Lesson) {
+        if let controller = R.storyboard.lessons.lessonDetailedController() {
+            controller.lesson = lesson
+            rootController.pushViewController(controller, animated: true)
         }
     }
 

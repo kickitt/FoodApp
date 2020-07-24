@@ -12,6 +12,7 @@ import Rswift
 class AuthFlowCoordinator: Coordinator {
     
     var onSuccessFlow: ((AuthFlowCoordinator?, User) -> ())?
+    var alertOkClicked: (()->())?
     private let rootViewController: UINavigationController
     
     init(window: UIWindow, rootViewController: UINavigationController) {
@@ -39,7 +40,6 @@ class AuthFlowCoordinator: Coordinator {
             controller.onRestore = { [weak self] in
                 self?.startResetPass()
             }
-            
             rootViewController.viewControllers = [controller]
             window.rootViewController = rootViewController
         }
@@ -60,9 +60,47 @@ class AuthFlowCoordinator: Coordinator {
     }
 
     private func startResetPass() {
-         if let controller = R.storyboard.auth.restorePasswordController() {
-            rootViewController.pushViewController(controller, animated: true)
-         }
+        
+        let controller = RestoreController()
+        rootViewController.pushViewController(controller, animated: true)
+        
+        controller.onProceedSuccess = { [weak controller, weak self] _ in
+            let code = String(UInt.random(in:1000...9999))
+            let alert = UIAlertController(title: "Continue with Code from this SMS", message:"Code: \(code)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                controller?.code = code
+                controller?.userConfirmedAlert = true
+            }))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        controller.onProceedFailure = { [weak self] _ in
+            let alert = UIAlertController(title: "Phone number is wrong", message: "Please provide correct number", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        
+        controller.onConfirmFailure = { [weak self]  in
+            let alert = UIAlertController(title: "The Code is wrong", message: "Please enter correct Code", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        controller.onFinishSuccess = { [weak self] _, user in
+            //self?.onSuccessFlow?(self, user)
+            let alert = UIAlertController(title: "Greate", message: "Your password was successfully restored", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in
+                self?.startLogin()
+            }))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        controller.onFinishFailure = { [weak self]  in
+            let alert = UIAlertController(title: "Password mismatch", message: "Feel all fields correctly", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

@@ -10,11 +10,21 @@ import UIKit
 
 class AuthButton: UIButton {
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupButton()
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupButton()
+    }
+    
+    private func setupButton() {
         //self.layer.borderWidth = 1
         self.layer.cornerRadius = 11.3
         self.backgroundColor = UIColor(red: 24/255, green: 105/255, blue: 132/255, alpha: 1)
+
     }
     
     override var isHighlighted: Bool {
