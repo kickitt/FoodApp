@@ -25,6 +25,12 @@ class AppSettings {
         }
     }
     
+    var currentUser: User? {
+        get {
+            return user
+        }
+    }
+    
     var isShowedTutorial: Bool {
         get {
             return UserDefaults.standard.bool(forKey: Key.IsShowedTutorialKey)

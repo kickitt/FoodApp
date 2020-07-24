@@ -13,6 +13,10 @@
 		30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1ABFB24C864DF000EAE1C /* RestoreController.swift */; };
 		30B3416324CAE1C90038057A /* FieldsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3416224CAE1C90038057A /* FieldsFormatter.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
+		E72B37F124CB41C500F07DEF /* LessonDetailedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F024CB41C500F07DEF /* LessonDetailedController.swift */; };
+		E72B37F324CB41D600F07DEF /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F224CB41D600F07DEF /* Lesson.swift */; };
+		E72B37F624CB420300F07DEF /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F524CB420300F07DEF /* LessonCell.swift */; };
+		E72B37FA24CB484B00F07DEF /* MyLessonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F924CB484B00F07DEF /* MyLessonsViewModel.swift */; };
 		E78F90EB24C2118000860461 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F90EA24C2118000860461 /* MainCoordinator.swift */; };
 		E78F90F124C2140700860461 /* Kupons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78F90F024C2140700860461 /* Kupons.storyboard */; };
 		E78F90F324C2140F00860461 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78F90F224C2140F00860461 /* Settings.storyboard */; };
@@ -56,6 +60,10 @@
 		30B1ABFB24C864DF000EAE1C /* RestoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreController.swift; sourceTree = "<group>"; };
 		30B3416224CAE1C90038057A /* FieldsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsFormatter.swift; sourceTree = "<group>"; };
 		54B81FF14751E81C8551CD44 /* Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
+		E72B37F024CB41C500F07DEF /* LessonDetailedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailedController.swift; sourceTree = "<group>"; };
+		E72B37F224CB41D600F07DEF /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		E72B37F524CB420300F07DEF /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
+		E72B37F924CB484B00F07DEF /* MyLessonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonsViewModel.swift; sourceTree = "<group>"; };
 		E78F90EA24C2118000860461 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E78F90F024C2140700860461 /* Kupons.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Kupons.storyboard; sourceTree = "<group>"; };
 		E78F90F224C2140F00860461 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -123,10 +131,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E72B37F424CB41E900F07DEF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E72B37F524CB420300F07DEF /* LessonCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E72B37F824CB483800F07DEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E72B37F924CB484B00F07DEF /* MyLessonsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E78F90EC24C213D600860461 /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
+				E72B37F424CB41E900F07DEF /* Cells */,
 				E78F90FE24C2145A00860461 /* LessonsController.swift */,
+				E72B37F024CB41C500F07DEF /* LessonDetailedController.swift */,
 				E78F910624C2174D00860461 /* LessonsCoordinator.swift */,
 				E78F90FC24C2145000860461 /* Lessons.storyboard */,
 			);
@@ -136,6 +162,7 @@
 		E78F90ED24C213DD00860461 /* MyLessons */ = {
 			isa = PBXGroup;
 			children = (
+				E72B37F824CB483800F07DEF /* ViewModel */,
 				E78F90F824C2143F00860461 /* MyLessonsController.swift */,
 				E78F910424C2174400860461 /* MyLessonsCoordinator.swift */,
 				E78F90FA24C2144600860461 /* MyLessons.storyboard */,
@@ -230,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				E7A50E9424B8D7D6007274E2 /* User.swift */,
+				E72B37F224CB41D600F07DEF /* Lesson.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +489,7 @@
 				E7A50EAB24B8D7D7007274E2 /* User.swift in Sources */,
 				301358CD24BF261700416177 /* FieldsValidator.swift in Sources */,
 				30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */,
+				E72B37FA24CB484B00F07DEF /* MyLessonsViewModel.swift in Sources */,
 				E7B0A54224B8E2E600221B50 /* R.generated.swift in Sources */,
 				E7A50EB724B8D7D7007274E2 /* NavigationController.swift in Sources */,
 				E7A50E7D24B8D790007274E2 /* AppDelegate.swift in Sources */,
@@ -471,6 +500,7 @@
 				E7B0A53A24B8DD0F00221B50 /* AppCoordinator.swift in Sources */,
 				E7A50EA924B8D7D7007274E2 /* NSObject.swift in Sources */,
 				E78F910D24C21CB600860461 /* CoordinatorProtocol.swift in Sources */,
+				E72B37F624CB420300F07DEF /* LessonCell.swift in Sources */,
 				E78F910124C2172E00860461 /* KuponsCoordinator.swift in Sources */,
 				E78F90F924C2143F00860461 /* MyLessonsController.swift in Sources */,
 				301358CB24BEF5D300416177 /* AuthButton.swift in Sources */,
@@ -479,8 +509,10 @@
 				E78F90F524C2142600860461 /* SettingsController.swift in Sources */,
 				E7A50EAC24B8D7D7007274E2 /* TutorialController.swift in Sources */,
 				E78F910724C2174D00860461 /* LessonsCoordinator.swift in Sources */,
+				E72B37F124CB41C500F07DEF /* LessonDetailedController.swift in Sources */,
 				E78F910324C2173B00860461 /* SettingsCoordinator.swift in Sources */,
 				30B3416324CAE1C90038057A /* FieldsFormatter.swift in Sources */,
+				E72B37F324CB41D600F07DEF /* Lesson.swift in Sources */,
 				E7A50EAE24B8D7D7007274E2 /* RegistrationController.swift in Sources */,
 				E7A50EB024B8D7D7007274E2 /* RestorePasswordController.swift in Sources */,
 				E7A50EAA24B8D7D7007274E2 /* UIViewController.swift in Sources */,

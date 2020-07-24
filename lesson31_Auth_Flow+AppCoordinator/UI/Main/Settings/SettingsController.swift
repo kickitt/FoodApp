@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsController: BaseViewController {
 
+    var user: User?
     var onLogoutClicked: (()->())?
         
     override func setupController() {
@@ -17,6 +18,11 @@ class SettingsController: BaseViewController {
         self.tabBarItem = UITabBarItem(title: "Settings",
                                        image: R.image.settingsIcon(),
                                        tag: 0)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = user?.name
     }
     
     @IBAction private func logoutButtonClicked() {

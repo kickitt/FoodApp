@@ -15,14 +15,67 @@
                     <view key="view" contentMode="scaleToFill" id="8oW-AI-rQH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5yW-ME-zNl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lessonCell" textLabel="owt-EW-czz" style="IBUITableViewCellStyleDefault" id="wS5-Fg-0Y3" customClass="LessonCell" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wS5-Fg-0Y3" id="vOY-KG-v9Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="owt-EW-czz">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tgG-n2-otU" id="htK-04-1nQ"/>
+                                    <outlet property="delegate" destination="tgG-n2-otU" id="cs8-Ta-3XA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZEe-kY-Ol4" firstAttribute="trailing" secondItem="5yW-ME-zNl" secondAttribute="trailing" id="9yH-cB-CXo"/>
+                            <constraint firstItem="5yW-ME-zNl" firstAttribute="top" secondItem="ZEe-kY-Ol4" secondAttribute="top" id="AVM-Co-ooa"/>
+                            <constraint firstItem="ZEe-kY-Ol4" firstAttribute="bottom" secondItem="5yW-ME-zNl" secondAttribute="bottom" id="HWU-1Z-JNY"/>
+                            <constraint firstItem="5yW-ME-zNl" firstAttribute="leading" secondItem="ZEe-kY-Ol4" secondAttribute="leading" id="dbL-KY-B4I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZEe-kY-Ol4"/>
                     </view>
                     <navigationItem key="navigationItem" id="WEW-fe-Tmz"/>
+                    <connections>
+                        <outlet property="tableView" destination="5yW-ME-zNl" id="XdT-tg-rqZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wx7-mL-95j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971.01449275362324" y="87.723214285714278"/>
+        </scene>
+        <!--Lesson Detailed Controller-->
+        <scene sceneID="sgT-NU-LYq">
+            <objects>
+                <viewController storyboardIdentifier="lessonDetailedController" id="9VN-xu-VlN" customClass="LessonDetailedController" customModule="lesson31_Auth_Flow_AppCoordinator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Svm-52-7NM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="28I-kI-gQZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8r1-KJ-yow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Heb-gy-qXx">

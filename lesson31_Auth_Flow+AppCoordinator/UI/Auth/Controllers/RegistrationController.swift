@@ -55,7 +55,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         passField?.autocorrectionType = .no
         passField?.textContentType = .password
         passField?.clearButtonMode = .whileEditing
-        passField?.isSecureTextEntry = true
+        passField?.isSecureTextEntry = false//true
         
         confirmPassField?.delegate = self
         confirmPassField?.placeholder = "Confirm password"
@@ -64,7 +64,7 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
         confirmPassField?.autocorrectionType = .no
         confirmPassField?.textContentType = .password
         confirmPassField?.clearButtonMode = .whileEditing
-        confirmPassField?.isSecureTextEntry = true
+        confirmPassField?.isSecureTextEntry = false//true
         
         confirmButton?.isEnabled = false
         
@@ -90,14 +90,20 @@ class RegistrationController: BaseViewController, UITextFieldDelegate {
             let emailF = emailField,
             let phoneF = phoneField,
             let passF = passField,
-            let confirmPassF = confirmPassField,
-            FieldsValidator.isNameValid(nameF),
-            FieldsValidator.isEmailValid(emailF),
-            FieldsValidator.isPhoneValid(phoneF),
-            FieldsValidator.isPassValid(passF),
-            FieldsValidator.isPassConfirmed(passF, confirmPassF){
-            let user = User(name: nameF.text!, email: emailF.text!, phone: phoneF.text!, password: confirmPassF.text!, photo: nil)
-            onRegSuccess?(user)
+            let confirmPassF = confirmPassField
+        {
+            let isNameValid = FieldsValidator.isNameValid(nameF)
+            let isEmailValid = FieldsValidator.isEmailValid(emailF)
+            let isPhoneValid = FieldsValidator.isPhoneValid(phoneF)
+            let isPassValid = FieldsValidator.isPassValid(passF)
+            let isPassConfirmed = FieldsValidator.isPassConfirmed(passF, confirmPassF)
+            
+            if isNameValid && isEmailValid && isPhoneValid && isPassValid && isPassConfirmed {
+                let user = User(name: nameF.text!, email: emailF.text!, phone: phoneF.text!, password: confirmPassF.text!, photo: nil)
+                onRegSuccess?(user)
+            } else {
+                onRegFailure?()
+            }
         } else {
             onRegFailure?()
         }

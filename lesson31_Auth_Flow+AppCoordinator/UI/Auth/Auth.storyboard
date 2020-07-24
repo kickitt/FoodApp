@@ -145,6 +145,14 @@
                                             <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="KND-aJ-pNF"/>
                                         </connections>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SF1-en-ZhI">
+                                        <rect key="frame" x="40" y="292" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="Eog-XK-lRj"/>
+                                        </connections>
+                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWb-xA-NFb">
                                         <rect key="frame" x="40" y="346" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -162,14 +170,6 @@
                                             <action selector="confirmButtonClicked" destination="XmP-lf-r5I" eventType="touchUpInside" id="sfZ-Zr-X3G"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SF1-en-ZhI">
-                                        <rect key="frame" x="40" y="292" width="334" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="editingChanged:" destination="XmP-lf-r5I" eventType="editingChanged" id="Eog-XK-lRj"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -194,9 +194,6 @@
                                     <constraint firstItem="eVx-Md-Kjh" firstAttribute="top" secondItem="arP-tb-Eer" secondAttribute="top" constant="130" id="oJt-ZQ-Aud"/>
                                     <constraint firstAttribute="trailing" secondItem="Zl0-OT-UHU" secondAttribute="trailing" constant="40" id="sSv-Kh-9gu"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kD5-tJ-igs" appends="YES" id="b4W-0X-RXp"/>
-                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -207,6 +204,9 @@
                             <constraint firstItem="qBZ-Fe-CUP" firstAttribute="trailing" secondItem="arP-tb-Eer" secondAttribute="trailing" id="Rsk-nw-PGk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qBZ-Fe-CUP"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kD5-tJ-igs" appends="YES" id="VDV-h4-vAI"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="eiC-6K-GRg"/>
                     <connections>

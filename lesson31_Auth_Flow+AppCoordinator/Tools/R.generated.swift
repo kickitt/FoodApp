@@ -237,6 +237,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `lessonCell`.
+    static let lessonCell: Rswift.ReuseIdentifier<LessonCell> = Rswift.ReuseIdentifier(identifier: "lessonCell")
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -361,8 +369,13 @@ struct _R: Rswift.Validatable {
       typealias InitialController = NavigationController
 
       let bundle = R.hostingBundle
+      let lessonDetailedController = StoryboardViewControllerResource<LessonDetailedController>(identifier: "lessonDetailedController")
       let lessonsController = StoryboardViewControllerResource<LessonsController>(identifier: "LessonsController")
       let name = "Lessons"
+
+      func lessonDetailedController(_: Void = ()) -> LessonDetailedController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: lessonDetailedController)
+      }
 
       func lessonsController(_: Void = ()) -> LessonsController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: lessonsController)
@@ -372,6 +385,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.lessons().lessonsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'lessonsController' could not be loaded from storyboard 'Lessons' as 'LessonsController'.") }
+        if _R.storyboard.lessons().lessonDetailedController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'lessonDetailedController' could not be loaded from storyboard 'Lessons' as 'LessonDetailedController'.") }
       }
 
       fileprivate init() {}
@@ -391,7 +405,6 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "ups", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ups' is used in storyboard 'MyLessons', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.myLessons().myLessonsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'myLessonsController' could not be loaded from storyboard 'MyLessons' as 'MyLessonsController'.") }

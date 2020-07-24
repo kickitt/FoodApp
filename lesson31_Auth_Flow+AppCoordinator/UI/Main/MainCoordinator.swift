@@ -13,6 +13,12 @@ class MainCoordinator: Coordinator {
     var onSuccessFlow: ((MainCoordinator?) -> ())?
     
     private let mainTabbar = MainController()
+    private let appSettings: AppSettings
+    
+    init(window: UIWindow, appSettings: AppSettings) {
+        self.appSettings = appSettings
+        super.init(window: window)
+    }
     
     override func startFlow() {
         
@@ -30,7 +36,7 @@ class MainCoordinator: Coordinator {
         addChildrenCoordinator(coordinator: kuponsCoordinator)
         
         //MARK: - coordinator 4 + alert
-        let settingsCoordinator = SettingsCoordinator(window: self.window)
+        let settingsCoordinator = SettingsCoordinator(window: self.window, appSettings: appSettings)
         settingsCoordinator.onLogout = { [weak self] in
             let alert = UIAlertController(title: "Вы точно хотите выйти?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { [weak self] _ in
