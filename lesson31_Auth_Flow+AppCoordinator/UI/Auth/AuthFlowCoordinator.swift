@@ -90,7 +90,11 @@ class AuthFlowCoordinator: Coordinator {
         }
         
         controller.onFinishSuccess = { [weak self] _, user in
-            self?.onSuccessFlow?(self, user)
+            //self?.onSuccessFlow?(self, user)
+            let alert = UIAlertController(title: "Greate", message: "Your password was successfully restored", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {_ in self?.startLogin()}))
+            self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+            
         }
         
         controller.onFinishFailure = { [weak self]  in
