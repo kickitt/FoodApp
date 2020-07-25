@@ -12,7 +12,7 @@ import ProgressHUD
 class MyLessonsController: BaseViewController {
 
     var onSelectedLesson: ((Lesson) -> ())?
-    var viewModel: ViewModel?
+    var myLessonsViewModel: MyLessonsViewModel?
     
     @IBOutlet private var tableView: UITableView?
     private var dataSource: [Lesson] = []
@@ -36,14 +36,14 @@ class MyLessonsController: BaseViewController {
         
         
         // setup view model
-        viewModel?.onLoading = {
+        myLessonsViewModel?.onLoading = {
             ProgressHUD.show()
         }
-        viewModel?.onLoadedFailed = { [weak self] errorMessage in
+        myLessonsViewModel?.onLoadedFailed = { [weak self] errorMessage in
             self?.tableView?.refreshControl?.endRefreshing()
             ProgressHUD.showError(errorMessage)
         }
-        viewModel?.onLoadedSuccess = { [weak self] dataSource in
+        myLessonsViewModel?.onLoadedSuccess = { [weak self] dataSource in
             self?.tableView?.refreshControl?.endRefreshing()
             ProgressHUD.dismiss()
             if let dataSource = dataSource as? [Lesson] {
@@ -51,13 +51,14 @@ class MyLessonsController: BaseViewController {
                 self?.tableView?.reloadData()
             }
         }
-        
-        viewModel?.fetchData()
+        myLessonsViewModel?.fetchData()
+
     }
     
     //MARK: - Actions
     @objc private func refreshData() {
-        viewModel?.fetchData()
+        myLessonsViewModel?.fetchData()
+ 
     }
 }
 

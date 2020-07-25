@@ -15,7 +15,7 @@ class MyLessonsCoordinator: Coordinator {
     override func startFlow() {
         if let controller = R.storyboard.myLessons.myLessonsController() {
             
-            controller.viewModel = MyLessonsViewModel()
+         controller.myLessonsViewModel = MyLessonsViewModel()
             controller.onSelectedLesson = { [weak self] lesson in
                 self?.openLessonDetailed(lesson)
             }

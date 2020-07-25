@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0582A3BD24CBFF5E0022FD91 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582A3BC24CBFF5E0022FD91 /* ViewModelProtocol.swift */; };
 		30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */; };
 		301358CB24BEF5D300416177 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CA24BEF5D300416177 /* AuthButton.swift */; };
 		301358CD24BF261700416177 /* FieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301358CC24BF261700416177 /* FieldsValidator.swift */; };
+		30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1ABFB24C864DF000EAE1C /* RestoreController.swift */; };
+		30B3416324CAE1C90038057A /* FieldsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3416224CAE1C90038057A /* FieldsFormatter.swift */; };
 		AF2BAF2424C99CD400487900 /* SlideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAF2324C99CD400487900 /* SlideModel.swift */; };
 		AF2BAF6E24C99EA000487900 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAF6A24C99E9F00487900 /* SlideView.swift */; };
 		AF2BAF6F24C99EA000487900 /* Button.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF2BAF6B24C99E9F00487900 /* Button.xib */; };
@@ -18,9 +21,6 @@
 		AF9CB03B24C8BE1D00D5CDFA /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9CB03A24C8BE1D00D5CDFA /* TutorialCoordinator.swift */; };
 		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
 		E72B37EF24C9B02700F07DEF /* MyLessonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78F910424C2174400860461 /* MyLessonsCoordinator.swift */; };
-		30B1ABFC24C864DF000EAE1C /* RestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1ABFB24C864DF000EAE1C /* RestoreController.swift */; };
-		30B3416324CAE1C90038057A /* FieldsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B3416224CAE1C90038057A /* FieldsFormatter.swift */; };
-		E657DBE5F790CF2C8A191BEE /* Pods_lesson31_Auth_Flow_AppCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8EED1D3C5088404923F605 /* Pods_lesson31_Auth_Flow_AppCoordinator.framework */; };
 		E72B37F124CB41C500F07DEF /* LessonDetailedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F024CB41C500F07DEF /* LessonDetailedController.swift */; };
 		E72B37F324CB41D600F07DEF /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F224CB41D600F07DEF /* Lesson.swift */; };
 		E72B37F624CB420300F07DEF /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B37F524CB420300F07DEF /* LessonCell.swift */; };
@@ -60,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0582A3BC24CBFF5E0022FD91 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		1D61E26FA2C80D98B6F840CD /* Pods-lesson31_Auth_Flow+AppCoordinator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson31_Auth_Flow+AppCoordinator.release.xcconfig"; path = "Target Support Files/Pods-lesson31_Auth_Flow+AppCoordinator/Pods-lesson31_Auth_Flow+AppCoordinator.release.xcconfig"; sourceTree = "<group>"; };
 		30085B2824C1799F0023889F /* AuthFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowCoordinator.swift; sourceTree = "<group>"; };
 		301358CA24BEF5D300416177 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
@@ -230,6 +231,7 @@
 			children = (
 				E78F910A24C21CB500860461 /* Coordinator.swift */,
 				E78F910B24C21CB500860461 /* CoordinatorProtocol.swift */,
+				0582A3BC24CBFF5E0022FD91 /* ViewModelProtocol.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -535,6 +537,7 @@
 				AF2BAF2424C99CD400487900 /* SlideModel.swift in Sources */,
 				30085B2924C1799F0023889F /* AuthFlowCoordinator.swift in Sources */,
 				E7B0A53A24B8DD0F00221B50 /* AppCoordinator.swift in Sources */,
+				0582A3BD24CBFF5E0022FD91 /* ViewModelProtocol.swift in Sources */,
 				AF2BAF7124C99EA000487900 /* TutorialButton.swift in Sources */,
 				AF2BAF6E24C99EA000487900 /* SlideView.swift in Sources */,
 				E7A50EA924B8D7D7007274E2 /* NSObject.swift in Sources */,

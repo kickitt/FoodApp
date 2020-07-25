@@ -8,15 +8,7 @@
 
 import Foundation
 
-protocol ViewModel {
-    var onLoading: (()->())? { get set }
-    var onLoadedSuccess: ((Any)->())? { get set }
-    var onLoadedFailed: ((String)->())? { get set }
-    
-    func fetchData()
-}
-
-class MyLessonsViewModel: ViewModel {
+class MyLessonsViewModel: ViewModelProtocol {
     
     var onLoading: (() -> ())?
     var onLoadedSuccess: ((Any) -> ())?
