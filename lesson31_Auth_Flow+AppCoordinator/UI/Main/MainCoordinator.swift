@@ -11,6 +11,7 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     var onSuccessFlow: ((MainCoordinator?) -> ())?
+   // var onRegSuccess: ((MainCoordinator?) -> ())?
     
     private let mainTabbar = MainController()
     private let appSettings: AppSettings
@@ -23,20 +24,21 @@ class MainCoordinator: Coordinator {
     override func startFlow() {
         
         // создадим кучу координаторов для каждого табика
-        //MARK: - coordinator 1
+//MARK: - coordinator 1
         let lessonsCoordinator = LessonsCoordinator(window: self.window)
         addChildrenCoordinator(coordinator: lessonsCoordinator)
         
-        //MARK: - coordinator 2
+//MARK: - coordinator 2
         let myLessonsCoordinator = MyLessonsCoordinator(window: self.window)
         addChildrenCoordinator(coordinator: myLessonsCoordinator)
         
-        //MARK: - coordinator 3
+//MARK: - coordinator 3
         let kuponsCoordinator = KuponsCoordinator(window: self.window)
         addChildrenCoordinator(coordinator: kuponsCoordinator)
         
-        //MARK: - coordinator 4 + alert
+//MARK: - coordinator 4 + alert
         let settingsCoordinator = SettingsCoordinator(window: self.window, appSettings: appSettings)
+//MARK: - Logout
         settingsCoordinator.onLogout = { [weak self] in
             let alert = UIAlertController(title: "Вы точно хотите выйти?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { [weak self] _ in
@@ -45,15 +47,26 @@ class MainCoordinator: Coordinator {
             alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
             self?.window.rootViewController?.present(alert, animated: true, completion: nil)
         }
+//MARK: - change profile
+       settingsCoordinator.onChange = { [weak self] in
+           let alert = UIAlertController(title: "Вы точно хотите изменить данные профиля?", message: nil, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { [weak self] _ in
+            self?.onSuccessFlow?(self)
+           }))
+           alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+           self?.window.rootViewController?.present(alert, animated: true, completion: nil)
+       }
+        
+        
         addChildrenCoordinator(coordinator: settingsCoordinator)
         
-        //MARK: -
+//MARK: -
         lessonsCoordinator.startFlow()
         myLessonsCoordinator.startFlow()
         kuponsCoordinator.startFlow()
         settingsCoordinator.startFlow()
         
-        //MARK: -
+//MARK: -
         mainTabbar.viewControllers = [lessonsCoordinator.rootController,
                                       myLessonsCoordinator.rootController,
                                       kuponsCoordinator.rootController,

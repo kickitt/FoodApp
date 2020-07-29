@@ -13,6 +13,7 @@ class SettingsCoordinator: Coordinator {
     let rootController = NavigationController()
     
     var onLogout: (()->())?
+    var onChange: (()->())?
     
     private var appSettings: AppSettings
     
@@ -26,6 +27,9 @@ class SettingsCoordinator: Coordinator {
             controller.user = appSettings.currentUser
             controller.onLogoutClicked = { [weak self] in
                 self?.onLogout?()
+            }
+            controller.onChangeClicked = { [weak self] in
+                self?.onChange?()
             }
             rootController.viewControllers = [controller]
         }

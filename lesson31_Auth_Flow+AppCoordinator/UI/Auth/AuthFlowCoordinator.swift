@@ -13,6 +13,7 @@ class AuthFlowCoordinator: Coordinator {
     
     var onSuccessFlow: ((AuthFlowCoordinator?, User) -> ())?
     var alertOkClicked: (()->())?
+    
     private let rootViewController: UINavigationController
     
     init(window: UIWindow, rootViewController: UINavigationController) {

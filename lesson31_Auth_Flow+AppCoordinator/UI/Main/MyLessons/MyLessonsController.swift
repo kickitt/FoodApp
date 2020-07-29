@@ -10,7 +10,7 @@ import UIKit
 import ProgressHUD
 
 class MyLessonsController: BaseViewController {
-
+    
     var onSelectedLesson: ((Lesson) -> ())?
     var myLessonsViewModel: MyLessonsViewModel?
     
@@ -52,13 +52,13 @@ class MyLessonsController: BaseViewController {
             }
         }
         myLessonsViewModel?.fetchData()
-
+        
     }
     
     //MARK: - Actions
     @objc private func refreshData() {
         myLessonsViewModel?.fetchData()
- 
+        
     }
 }
 
@@ -69,8 +69,8 @@ extension MyLessonsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lessonCell, for: indexPath)!
-        
         cell.model = dataSource[indexPath.row]
+        self.tableView?.tableFooterView = UIView()
         
         return cell
     }

@@ -20,18 +20,20 @@ class LessonsController: BaseViewController {
         self.tabBarItem = UITabBarItem(title: "Lessons",
                                        image: R.image.allLessonsIcon(),
                                        tag: 0)
+       
     }
 }
 
 extension LessonsController: UITableViewDataSource {
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lessonCell, for: indexPath)!
-        
         cell.model = dataSource[indexPath.row]
+        self.tableView?.tableFooterView = UIView()
         
         return cell
     }
@@ -41,5 +43,8 @@ extension LessonsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         onSelectedLesson?(dataSource[indexPath.row])
+       // print("section = \(indexPath.section), row = \(indexPath.row)")
+        
     }
+   
 }

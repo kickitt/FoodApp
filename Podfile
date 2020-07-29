@@ -9,4 +9,5 @@ target 'lesson31_Auth_Flow+AppCoordinator' do
     pod 'R.swift'
     pod 'SnapKit', '~> 5.0.0'
     pod 'ProgressHUD'
+    pod 'SDWebImage'
 end
